@@ -57,6 +57,7 @@
                         <h1 class="fs-2">
                             <section id="valorA"> 0 </section>
                         </h1>
+
                     </div>
                     <hr>
                     </hr>
@@ -65,10 +66,12 @@
                         medida de peso y el material que se esta pesando </p>
                     <div class="d-flex justify-content-center">
                         <input type="button" value="Calcular precio" class="boton justify-content-center"
-                            onclick="calcular()">
+                            onclick="calcular(); capturarPeso()">
                     </div>
                     <br>
                     <div>
+                        <h3 class="text-center">Peso</h3>
+                        <input class="form-control text-center" type="text" id="peso" readonly="readonly">
                         <h3 class="text-center">Precio</h3>
                         <input class="form-control text-center" type="text" id="precio_total" readonly="readonly"
                             class="box precio" name="precio_total" value=0>
@@ -175,7 +178,7 @@
                 <a href="" class="m-3 text-reset"><i class="redes fab fa-linkedin"></i></a>
             </div>
         </section>
-        <section class="footer">
+        <section>
             <div class="container text-center text-md-start mt-5">
                 <div class="row mt-3">
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -202,7 +205,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> 
         <div class="desarrollador text-center p-2">
             <p>© 2022 Copyright:
                 Desarrollado por Jefferson Rios</a>

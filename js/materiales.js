@@ -1,6 +1,7 @@
 $(document).ready(function () {
     /* --variables para llamar a los select por el id */
     let $materiales_select = document.getElementById('material')
+    let $valo = document.getElementById('peso')
 
 
     function opciones() {
@@ -10,7 +11,7 @@ $(document).ready(function () {
             success: function(response) {
                 console.log(response)
                 const materiales = JSON.parse(response);
-                let template = '<option selected disabled id="no-option">Eliga...</option>';
+                let template;
     
                 materiales.forEach(material => {
                     template += `<option class="form-control" name="option" id="${material.material_id}" value="${material.precio}">
@@ -22,5 +23,4 @@ $(document).ready(function () {
         })
     }
     opciones()
-
 })    
