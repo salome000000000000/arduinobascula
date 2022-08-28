@@ -29,15 +29,8 @@ function capturarPeso(){
         url: './php/actualizar_valor.php',
         type: 'GET',
         dataType: 'text',
-        succes: function(peso){
-            console.log(peso)
-            const valor = peso;
-            valor.forEach(valor_bascula => {
-                let capturar = `<input type="text" class="form-control text-center" value="${valor_bascula.valor} 
-                "type="text" id="peso" readonly="readonly">`;
-            })
-
-            $valo.innerHTML = capturar;            
+        success: function(peso){
+            $("#peso").val(peso);     
         }
     })
 }
