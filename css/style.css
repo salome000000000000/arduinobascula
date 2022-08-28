@@ -1,0 +1,145 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar{
+  background-color: #259234;
+  text-decoration: none;
+  color: white;
+}
+
+.color-footer{
+  background-color: #259234;
+  color: white;
+}
+
+.redes{
+  font-size: 40px;
+}
+
+.desarrollador{
+
+  background-color: #01460a;
+}
+
+/*ESTILO DE LA TABLA*/
+
+.boton{
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #2ecc71;
+  box-shadow: 0px 5px 0px 0px #15B358;
+  border: none;
+}
+
+.boton:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.boton:hover {
+  background-color: #48E68B;
+}
+
+
+table, td, th, tr, caption {  
+  border: 0px solid #ddd;
+  text-align: left;
+  border-color: black;
+  border-top: 0px;
+  text-align: center;
+}
+
+.valor{
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+caption{
+	background-color: green;
+	color: white;
+	border: 0px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th, td, caption {
+  padding: 15px; 
+}
+
+.precios_referenciales{
+  background-color: white;
+  padding: 5px;
+}
+
+.precios_referenciales td{
+  width: 50%;
+}
+
+.precios_referenciales tr td, th{
+  padding: 5px;
+}
+
+.separador{
+  border-right: black solid 1px;
+}
+
+.abajo{
+  border-bottom: solid black 1px ;
+}
+
+.precios_referenciales .aviso{
+  border-top: solid black 1px;
+  border-radius: 10px;
+}
+
+
+.rojo{
+  background-color: #900606;
+  box-shadow: 0px 5px 0px 0px #5D0000;
+  text-decoration: none;
+}
+
+.rojo:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+  text-decoration: none;
+}
+
+.rojo:hover {
+  background-color: #B92424;
+  color: white;
+  text-decoration: none;
+}
+
+.container{
+  border-bottom: solid black 1px;
+}
+
+/*VALIDADOR*/
+
+.verificador .validador{
+  color: rgb(169, 0, 0);
+  font-size: 2rem;
+  right: -1%;
+}
+
+.v-cedula .validador, .v-correo .validador, .v-telefono  .validador{
+  right: -0.5%;
+}
+
+
+
+
+

@@ -1,0 +1,10 @@
+/*EFECTO RESPONSIVE*/
+@media (max-width: 425px){
+  *{
+    font-size: 9px;
+    /*text-align: left;*/
+  }
+  .logo{
+    visibility: hidden;
+  }
+}
