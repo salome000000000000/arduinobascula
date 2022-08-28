@@ -1,7 +1,6 @@
 <?php	
     include 'conexion_database.php';
 
-
     $query = "SELECT * FROM datosarduino";
     $result = mysqli_query($con, $query);
 	if($result){

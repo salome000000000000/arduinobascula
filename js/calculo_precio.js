@@ -31,7 +31,8 @@ function capturarPeso(){
 
 function resetearValor(){
 
-    document.getElementById("precio_total").value = 0;
+    document.getElementById("precio_total").value = "0.00$";
+    document.getElementById("peso").value = "Click en calcular precio...";
 
 }
 

@@ -27,14 +27,13 @@ a{
 
 .boton{
   border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 22px;
+  padding: 5px 10px;
   text-decoration: none;
   color: #fff;
   position: relative;
   display: inline-block;
-  background-color: #2ecc71;
-  box-shadow: 0px 5px 0px 0px #15B358;
+  background-color: #1cb85d;
+  box-shadow: 0px 5px 0px 0px #007531;
   border: none;
 }
 
@@ -45,7 +44,7 @@ a{
 }
 
 .boton:hover {
-  background-color: #48E68B;
+  background-color: #2bd371;
 }
 
 
@@ -122,6 +121,28 @@ th, td, caption {
   color: white;
   text-decoration: none;
 }
+
+/*AZUL*/
+.azul{
+  background-color: #1121b3;
+  box-shadow: 0px 5px 0px 0px #24005d;
+  text-decoration: none;
+}
+
+.azul:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+  text-decoration: none;
+}
+
+.azul:hover {
+  background-color: #2465b9;
+  color: white;
+  text-decoration: none;
+}
+
+
 
 .container{
   border-bottom: solid black 1px;
