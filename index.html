@@ -9,7 +9,7 @@
     
     <!-- JavaScript -->
     <script src="./js/jquery.min.js" type="text/javascript"></script>
-    <script src ="./js/calculo_precio_material.js" type="text/javascript"></script>
+    <script src ="./js/calculo_precio.js" type="text/javascript"></script>
     <script src ="./js/materiales.js" type="text/javascript"></script>
     <script src ="./js/actualizar.js" type="text/javascript"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
@@ -57,7 +57,7 @@
                         <h1 class="fs-2">
                             <section id="valorA"> 0 </section>
                         </h1>
-
+                        <input type="button" onclick="resetBascula()" value="Resetear">
                     </div>
                     <hr>
                     </hr>
@@ -66,12 +66,12 @@
                         medida de peso y el material que se esta pesando </p>
                     <div class="d-flex justify-content-center">
                         <input type="button" value="Calcular precio" class="boton justify-content-center"
-                            onclick="calcular(); capturarPeso()">
+                            onclick="calcular(); capturarPeso()">   
                     </div>
                     <br>
                     <div>
                         <h3 class="text-center">Peso</h3>
-                        <input class="form-control text-center" type="text" id="peso" readonly="readonly">
+                        <input class="form-control text-center" placeholder="Click en calcular precio..." type="text" id="peso" readonly="readonly">
                         <h3 class="text-center">Precio</h3>
                         <input class="form-control text-center" type="text" id="precio_total" readonly="readonly"
                             class="box precio" name="precio_total" value=0>
