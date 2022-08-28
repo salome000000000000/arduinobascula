@@ -7,7 +7,8 @@
 	if($result){
 	    while($row = mysqli_fetch_array($result)){
 			$valor = $row["valor"];
-			echo $valor;     
+			echo $valor; 
+			    
 		}
     }                          
 ?>

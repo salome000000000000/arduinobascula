@@ -9,7 +9,6 @@ $(document).ready(function () {
             url: './php/select_materiales.php',
             type: 'GET',
             success: function(response) {
-                console.log(response)
                 const materiales = JSON.parse(response);
                 let template;
     
