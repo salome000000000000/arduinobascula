@@ -161,6 +161,21 @@ th, td, caption {
 }
 
 
+.correcto{
+  visibility: hidden;
+}
+
+.incorrecto{
+  visibility: visible;
+}
+
+.form-control-red{
+  border: solid 1px red;
+}
+
+.form-control-red:focus{
+  box-shadow: 0 0 10px red;
+}
 
 
 

@@ -13,7 +13,7 @@ $(document).ready(function () {
                 let template;
     
                 materiales.forEach(material => {
-                    template += `<option class="form-control" name="option" id="${material.material_id}" value="${material.precio}">
+                    template += `<option class="materiales form-control" name="materiales" id="${material.material_id}" value="${material.precio}">
                     ${material.materiales}</option>`;
                 })
 
@@ -22,4 +22,4 @@ $(document).ready(function () {
         })
     }
     opciones()
-})    
+}) 

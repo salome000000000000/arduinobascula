@@ -14,6 +14,7 @@
     <script src ="./js/actualizar.js" type="text/javascript"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./ico/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
     <!-- ARCHIVOS DE ESTILO -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -41,7 +42,7 @@
     </header>
 
     <!-- FORMULARIO -->
-    <form action="insertar_usuarios.php" method="POST" id="datos-usuario" onsubmit="validacionDatos()">
+    <form action="./php/insertar_usuarios.php" method="POST" id="datos-usuario" novalidate>
         <div class="container-fluid row m-0 p-0">
             <!-- Pagina 1 -->
             <div class="bascula-arduino col-xl p-5" id="home">
@@ -57,7 +58,7 @@
                         <h1 class="fs-2">
                             <section id="valorA"> 0 </section>
                         </h1>
-                        <input type="button" onclick="resetBascula()" value="Resetear">
+                        <input type="button" onclick="resetBascula()" value="Resetear" class="boton azul">
                     </div>
                     <hr>
                     </hr>
@@ -66,7 +67,7 @@
                         medida de peso y el material que se esta pesando </p>
                     <div class="d-flex justify-content-center">
                         <input type="button" value="Calcular precio" class="boton justify-content-center"
-                            onclick="calcular(); capturarPeso()">   
+                            onclick="calcular(); capturarPeso()"> 
                     </div>
                     <br>
                     <div>
@@ -74,7 +75,12 @@
                         <input class="form-control text-center" placeholder="Click en calcular precio..." type="text" id="peso" readonly="readonly">
                         <h3 class="text-center">Precio</h3>
                         <input class="form-control text-center" type="text" id="precio_total" readonly="readonly"
-                            class="box precio" name="precio_total" value=0>
+                            class="box precio" name="precio_total" value= "0.00$">
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <input type="button" value="Resetear" class="boton azul"
+                                onclick="resetearValor()"> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,14 +125,14 @@
                     <div class="row g-2">
                         <div class="col verificador v-nombre">
                             <div class="form-floating mb-3">
-                            <span id="validador" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span> 
+                            <span id="validacion-nombre" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span> 
                                 <input class="form-control" type="text" class="box" id="nombres" name="nombres" required>
                                 <label for="nombres">Nombre: </label>
                             </div>
                         </div>
                         <div class="col verificador v-apellido">
                             <div class="form-floating mb-3">
-                            <span class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
+                            <span id="validacion-apellido" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
                                 <input class="form-control" type="text" class="box" id="apellido" name="apellido" required>
                                 <label for="apellido">Apellido: </label>
                             </div>
@@ -134,18 +140,18 @@
                     </div>
                     <div class="form-column">
                         <div class="form-floating mb-3 verificador v-cedula">
-                        <span class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
+                        <span id="validacion-cedula" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
                             <input class="form-control" type="text" class="box" id="cedula" name="cedula" required>
                             <label for="cedula">Cédula: </label>
                         </div>
                         <div class="form-floating mb-3 verificador v-correo">
-                        <span class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
+                        <span id="validacion-correo" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
                             <input class="form-control" type="email" class="box" id="correo" name="correo" required>
                             <label for="correo">Correo: </label>
                         </div>
 
                         <div class="form-floating mb-3 verificador v-telefono">
-                        <span class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
+                        <span id="validacion-telefono" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
                             <input class="form-control" type="text" class="box" id="celular" name="celular" required>
                             <label for="celular">Teléfono: </label>
 
@@ -154,12 +160,11 @@
                             <textarea class="form-control" class="box" id="direccion" name="direccion"
                                 placeholder="Ingrese su dirección (opcional)"></textarea>
                             <label for="direccion">Dirección: </label>
-
                         </div>
                     </div>
                     <div class="errors"></div>
                 </fieldset>
-                <input type="submit" class="boton" name="enviar" id="enviar" value="Registrar Datos">
+                <input type="submit" name="enviar" class="boton" id="enviar" value="Registrar Datos">
             </div>
         </div>
     </form>
@@ -212,5 +217,5 @@
         </div>
     </footer>
 </body>
-
+<script src="./js/main.js" type="text/javascript"></script>
 </html>

@@ -11,12 +11,17 @@ function calcular() {
     var option = parseFloat(test.value);
     var valor = Math.floor(peso) * option;
     var final = (valor / 1000).toFixed(2);
+    
 
 
     document.getElementById('precio_total').value = final + " $";
+
+    
     
     // document.getElementById("calculo_peso").innerHTML = valor;
 }
+
+
 
 function capturarPeso(){
     $.ajax({
@@ -32,7 +37,7 @@ function capturarPeso(){
 function resetearValor(){
 
     document.getElementById("precio_total").value = "0.00$";
-    document.getElementById("peso").value = "Click en calcular precio...";
+    document.getElementById("peso").value = "";
 
 }
 
@@ -46,7 +51,7 @@ function resetBascula(){
         type: 'POST',
         dataType: 'text',
         success: function(peso){
-            console.log("valor enviado: "+ reset);  
+            //console.log("valor enviado: "+ reset);  
         }
     })
 }

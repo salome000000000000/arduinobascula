@@ -15,6 +15,7 @@ $direccion = $_POST["direccion"];
 //$precio = $_POST["precio_total"]; 
 //$precio = "<script>document.writeln(final);</script>";
 
+$material_id = $_POST["material_id"];
 
 if(isset($_POST["material"])){
 
@@ -50,7 +51,7 @@ ob_end_clean();
 <body>
     <h1>Se ha registrado exitosamente</h1>
     <b>Se redireccionará al inicio...</b>
-    <i>Si no se direcciona automaticamente, haga click <a href="index.php">aquí</a></i>
+    <i>Si no se direcciona automaticamente, haga click <a href="../index.html">aquí</a></i>
 
 </body>
 </html>
