@@ -28,7 +28,7 @@ const campos = {
 
 const validarFormulario = (reg) => {
 	switch (reg.target.name){
-		case "nombres":
+		case "nombre":
 				validarCampos(expresiones.nombre, reg.target, 'nombre');
 			break;
 
@@ -44,7 +44,7 @@ const validarFormulario = (reg) => {
 				validarCampos(expresiones.correo, reg.target, 'correo');
 			break;
 
-		case "celular":
+		case "telefono":
 				validarCampos(expresiones.telefono, reg.target, 'telefono');
 			break;
 
@@ -61,9 +61,13 @@ const validarCampos = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
 		document.getElementById(`validacion-${campo}`).classList.remove('incorrecto');
 		document.getElementById(`validacion-${campo}`).classList.add('correcto');
+		document.getElementById(`${campo}`).classList.remove('form-control-red');
+		document.getElementById(`${campo}`).classList.add('form-control-green');
 		campos[campo] = true;
 	} else {
 		document.getElementById(`validacion-${campo}`).classList.add('incorrecto');
+		document.getElementById(`${campo}`).classList.add('form-control-red');
+		document.getElementById(`${campo}`).classList.remove('form-control-green');
 		campos[campo] = false;
 	}
 }
@@ -87,3 +91,8 @@ $(document).ready(function(){
 	console.log(id);
 });
 //formulario.addEventListener('button', holamundo());
+
+function enviarDatos(){
+	var datos = $("#datos-usuario :input[value!='']").serialize();
+ 	 console.log(datos);
+}

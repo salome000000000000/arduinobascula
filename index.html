@@ -126,8 +126,8 @@
                         <div class="col verificador v-nombre">
                             <div class="form-floating mb-3">
                             <span id="validacion-nombre" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span> 
-                                <input class="form-control" type="text" class="box" id="nombres" name="nombres" required>
-                                <label for="nombres">Nombre: </label>
+                                <input class="form-control" type="text" class="box" id="nombre" name="nombre" required>
+                                <label for="nombre">Nombre: </label>
                             </div>
                         </div>
                         <div class="col verificador v-apellido">
@@ -152,7 +152,7 @@
 
                         <div class="form-floating mb-3 verificador v-telefono">
                         <span id="validacion-telefono" class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
-                            <input class="form-control" type="text" class="box" id="celular" name="celular" required>
+                            <input class="form-control" type="text" class="box" id="telefono" name="telefono" required>
                             <label for="celular">Teléfono: </label>
 
                         </div>
@@ -165,6 +165,7 @@
                     <div class="errors"></div>
                 </fieldset>
                 <input type="submit" name="enviar" class="boton" id="enviar" value="Registrar Datos">
+                <input type="button" value="registrar" onclick="enviarDatos()">
             </div>
         </div>
     </form>
