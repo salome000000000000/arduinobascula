@@ -21,8 +21,6 @@ function calcular() {
     // document.getElementById("calculo_peso").innerHTML = valor;
 }
 
-
-
 function capturarPeso(){
     $.ajax({
         url: './php/actualizar_valor.php',
@@ -36,7 +34,7 @@ function capturarPeso(){
 
 function resetearValor(){
 
-    document.getElementById("precio_total").value = "0.00$";
+    document.getElementById("precio_total").value = "0.00 $";
     document.getElementById("peso").value = "";
 
 }

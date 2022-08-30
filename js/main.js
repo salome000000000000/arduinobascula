@@ -93,6 +93,13 @@ $(document).ready(function(){
 //formulario.addEventListener('button', holamundo());
 
 function enviarDatos(){
-	var datos = $("#datos-usuario :input[value!='']").serialize();
+	var datos = {
+		"nombre": $("#nombre").val(),
+		"apellido": $("#apellido").val(),
+		"correo": $("#correo").val(),
+		"cedula": $("#cedula").val(),
+		"telefono": $("#telefono").val(),
+	}
+
  	 console.log(datos);
 }
