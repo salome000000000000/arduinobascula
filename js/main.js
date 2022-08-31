@@ -101,5 +101,14 @@ function enviarDatos(){
 		"telefono": $("#telefono").val(),
 	}
 
+	$.ajax({
+        url: './php/insertar_usuarios.php',
+        data: datos,
+        type: 'POST',
+        dataType: 'text',
+        success: function(peso){
+            //console.log("valor enviado: "+ reset);  
+        }
+    })
  	 console.log(datos);
 }

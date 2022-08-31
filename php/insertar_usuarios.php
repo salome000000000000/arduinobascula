@@ -6,7 +6,7 @@ include 'conexion_database.php';
 echo "<br>";
 
 
-$nombre = $_POST["nombres"];
+$nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $cedula = $_POST["cedula"];
 $correo = $_POST["correo"];

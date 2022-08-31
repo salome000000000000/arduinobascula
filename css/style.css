@@ -186,5 +186,13 @@ th, td, caption {
   border: solid 1px rgb(24, 94, 0);
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
-
+.carousel-img{
+	height: 200px;
+	object-fit: none;
+}
