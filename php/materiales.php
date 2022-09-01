@@ -15,28 +15,22 @@
 </head>
 
 <body>
-    <div class="d-flex justify-content-center">
-        <table class="precios_referenciales shadow-lg">
-            <caption> Precios referenciales respecto a material reciclado </caption>
-            <tr class="abajo">
-                <th>Material</th>
-                <th>Precio</th>
-            </tr>
+    <div class="cointainer">  
+        <ul class="list-group">
             <?php
                 if($result){
                     while($row = mysqli_fetch_array($result)){
-                        echo "<tr>";
-                        echo "<td class='separador'>" . $row[1] . '</td>';
-                        echo '<td>' . $row[2] . '</td>';
-                        echo "</tr>";
-                    }     
+                        echo "<li 
+                        class='list-group-item d-flex justify-content-between align-items-left'>"
+                        . $row[1] . 
+                        "<span class='badge bg-primary rounded-pill'>" 
+                        . $row[2] . "$"
+                        . "</span>
+                        </li>";
+                    }
                  }
-                 ?>
-            <tr>
-                <td class="aviso" colspan="2">Pueden variar de acuerdo a las condiciones del mercado y la
-                    calidad de material entregado al gestor</td>
-            </tr>
-        </table>
+            ?>
+         </ul>        
     </div>
 </body>
 

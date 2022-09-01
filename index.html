@@ -46,15 +46,17 @@
     </header>
 
     <!-- FORMULARIO -->
-    <div class="text-center mt-4"><h1>Báscula Arduino </h1></div>
+    <div class="text-center mt-3">
+        <h1>Báscula Arduino </h1>
+    </div>
     <form action="./php/insertar_usuarios.php" method="POST" id="datos-usuario" novalidate>
         <div class="container-fluid row m-0 p-0">
             <!-- Pagina 1 -->
-            <div class="bascula-arduino col-xl p-5" id="home">
+            <div class="bascula-arduino col-xl p-5 pt-3" id="home">
                 <div class="content">
                     <h3>Cálculo mediante báscula</h3>
                     <p>Seleccione el material que se está pesando:</p>
-                    <div class="text-center">
+                    <div class="text-center pb-3">
                         <label for="material"> Material reciclable: </label>
                         <select class="form-control text-center" id='material' name='material'>
                         </select>
@@ -70,42 +72,38 @@
                     <h3> Calcular el precio por su peso </h3>
                     <p> Para calcular el precio del material reciclado que está colocado en la báscula, seleccione la
                         medida de peso y el material que se esta pesando </p>
-                    <div class="d-flex justify-content-center">
-                        <input type="button" value="Calcular precio" class="boton justify-content-center"
-                            onclick="calcular(); capturarPeso()">
-                    </div>
                     <br>
-                    <div>
-                        <h3 class="text-center">Peso:</h3>
-                        <input class="form-control text-center" placeholder="Click en calcular precio..." type="text"
-                            id="peso" readonly="readonly">
-                        <h3 class="text-center">Precio</h3>
-                        <input class="form-control text-center" type="text" id="precio_total" readonly="readonly"
-                            class="box precio" name="precio_total" value="0.00 $">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center">Peso:</h3>
+                            <input class="form-control text-center" placeholder="Click en calcular precio..."
+                                type="text" id="peso" readonly="readonly">
+                        </div>
+                        <div class="col">
+                            <h3 class="text-center">Precio</h3>
+                            <input class="form-control text-center" type="text" id="precio_total" readonly="readonly"
+                                class="box precio" name="precio_total" value="0.00 $">
+                        </div>
+                    </div>    
                         <br>
                         <div class="d-flex justify-content-center">
-                            <input type="button" value="Resetear" class="boton azul" onclick="resetearValor()">
+                            <input type="button" value="Calcular precio" class="boton m-3"
+                            onclick="calcular(); capturarPeso()">
+                            <input type="button" value="Resetear" class="boton m-3 azul" onclick="resetearValor()">
                         </div>
-                    </div>
                 </div>
             </div>
             <!-- PAGINA 2 -->
-            <div class="bascula-arduino col-sm p-5">
+            <div class="bascula-arduino col-sm p-5 pt-2">
                 <h2>Listado de precios</h2>
                 <p>A continuación se presentan los precios de cada material reciclable</p>
-                <div id="materiales-select" class="d-flex justify-content-center">
-                    <table class="precios_referenciales shadow-lg">
-                        <caption> Precios referenciales respecto a material reciclado </caption>
-                        <tr class="abajo">
-                            <th>Material</th>
-                            <th>Precio</th>
-                        </tr>
-
-                        <tr>
-                            <td class="aviso" colspan="2">Pueden variar de acuerdo a las condiciones del mercado y la
-                                calidad de material entregado al gestor</td>
-                        </tr>
-                    </table>
+                <div id="materiales-select">
+                    <ul class="list-group">
+                        <li class='list-group-item d-flex justify-content-between align-items-left'>
+                            Aquí se mostrarán el listado de precios
+                            <span class="spinner-border" role="status"></span>
+                        </li>
+                    </ul>
                 </div>
                 <br>
                 <div class="d-flex justify-content-center">
@@ -118,23 +116,25 @@
         <!-- SLIDER -->
         <div id="carouselExampleControls" class="carousel slide mh-25" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./img/test/1.jpg" class="d-block w-100 carousel-img">
-              </div>
-              <div class="carousel-item">
-                <img src="./img/test/2.jpg" class="d-block w-100 carousel-img" >
-              </div>
-              <div class="carousel-item">
-                <img src="./img/test/3.jpg" class="d-block w-100 carousel-img" >
-              </div>
+                <div class="carousel-item active">
+                    <img src="./img/test/1.jpg" class="d-block w-100 carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/test/2.jpg" class="d-block w-100 carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/test/3.jpg" class="d-block w-100 carousel-img">
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
         <!-- Pagina 3 -->
@@ -181,7 +181,8 @@
                         <div class="form-floating mb-3 verificador v-telefono">
                             <span id="validacion-telefono"
                                 class="validador position-absolute top-50 translate-middle danger fa-solid fa-circle-exclamation"></span>
-                            <input class="form-control" type="number" class="box" id="telefono" name="telefono" required>
+                            <input class="form-control" type="number" class="box" id="telefono" name="telefono"
+                                required>
                             <label for="celular">Teléfono: </label>
 
                         </div>
