@@ -19,7 +19,6 @@ a{
 }
 
 .desarrollador{
-
   background-color: #01460a;
 }
 
@@ -46,50 +45,6 @@ a{
 .boton:hover {
   background-color: #2bd371;
 }
-
-
-.valor{
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-}
-
-caption{
-	background-color: green;
-	color: white;
-	border: 0px;
-}
-
-table {
-  border-collapse: collapse;
-  width: 90%;
-}
-
-th, td, caption {
-  padding: 15px; 
-}
-
-.precios_referenciales{
-  background-color: white;
-  padding: 5px;
-}
-
-.precios_referenciales td{
-  width: 50%;
-}
-
-.precios_referenciales tr td, th{
-  padding: 5px;
-}
-
-.separador{
-  border-right: black solid 1px;
-}
-
-.precios_referenciales .aviso{
-  border-top: solid black 1px;
-  border-radius: 10px;
-}
-
 
 .rojo{
   background-color: #900606;
@@ -179,3 +134,4 @@ input[type=number]::-webkit-outer-spin-button {
 	height: 200px;
 	object-fit: none;
 }
+
