@@ -49,14 +49,14 @@
     <div class="container background">
         <!-- FORMULARIO -->
         <div class="caja p-4 mt-4 mb-4">
-            <h1>Báscula Arduino </h1>
+            <h1 class="m-0">Báscula Arduino </h1>
         </div>
         <form action="./php/insertar_usuarios.php" method="POST" id="datos-usuario" novalidate>
             <div class="container-fluid row m-0 p-0">
                 <!-- Pagina 1 -->
                 <div class="caja bascula-arduino col-xl p-4 me-4 mb-4" id="home">
                     <div class="content">
-                        <h2>Cálculo mediante báscula</h2>
+                        <h2 fw-light>Cálculo mediante báscula</h2>
                         <p>Seleccione el material que se está pesando:</p>
                         <div class="text-center pb-3">
                             <label for="material"> Material reciclable: </label>
@@ -75,7 +75,6 @@
                         <p> Para calcular el precio del material reciclado que está colocado en la báscula, seleccione
                             la
                             medida de peso y el material que se esta pesando </p>
-                        <br>
                         <div class="row">
                             <div class="col">
                                 <h3 class="text-center">Peso:</h3>
@@ -98,22 +97,21 @@
                 <div class="caja bascula-arduino col-sm p-4 mb-4">
                     <h2>Listado de precios</h2>
                     <p>A continuación se presentan los precios de cada material reciclable</p>
-                        <div class="mt-4 lign-items-center">
-                            <div id="materiales-select">
-                                <ul class="list-group">
-                                    <li class='list-group-item d-flex justify-content-between align-items-left'>
-                                        Aquí se mostrarán el listado de precios
-                                        <span class="spinner-border" role="status"></span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <br>
-                            <div class="d-flex justify-content-center">
-                                <div class="boton-administrar m-0 p-0" id="calculo_peso">
-                                    <a class="boton rojo" name="admin" id="admin" href="login.html">Administrar</a>
-                                </div>
-                            </div>
+                    <div id="materiales-select">
+                        <ul class="list-group" id="lista-precios">
+                            <li id="precios-cargando"
+                                class='list-group-item d-flex justify-content-between align-items-left'>
+                                <span class="align-text-bottom">Aquí se mostrarán el listado de precios.</span>
+                                <span class="spinner-border" role="status"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <div class="boton-administrar m-0 p-0" id="calculo_peso">
+                            <a class="boton rojo" name="admin" id="admin" href="login.html">Administrar</a>
                         </div>
+                    </div>
                 </div>
             </div>
             <!-- SLIDER -->
@@ -205,55 +203,15 @@
             </div>
         </form>
     </div>
-    <footer class="color-footer text-center text-lg-start">
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-
-            <div class="mx-auto">
-                <div class="me-0 d-none d-lg-block text-center">
-                    <p>
-                        <span>Atento a nuestras redes sociales:</span>
-                    </p>
-                </div>
-                <a href="" class="m-3 text-reset"><i class="redes fab fa-facebook-f"></i></a>
-                <a href="" class="m-3 text-reset"><i class="redes fab fa-twitter"></i></a>
-                <a href="" class="m-3 text-reset"><i class="redes fab fa-instagram"></i></a>
-                <a href="" class="m-3 text-reset"><i class="redes fab fa-linkedin"></i></a>
-            </div>
-        </section>
-        <section>
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Company name
-                        </h6>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4"> Useful links</h6>
-                        <li><a href="#!" class="text-reset">Pricing</a></li>
-                        <li><a href="#!" class="text-reset">Settings</a></li>
-                        <li><a href="#!" class="text-reset">Orders</a></li>
-                        <li><a href="#!" class="text-reset">Help</a></li>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                        <li><i class="fas fa-home me-3"></i> New York, NY 10012, US</li>
-                        <li><i class="fas fa-envelope me-3"></i></li>
-                        <li><i class="fas fa-phone me-3"></i> + 01 234 567 88</li>
-                        <li><i class="fas fa-print me-3"></i> + 01 234 567 89</li>
-                    </div>
+    <div id="layoutAuthentication_footer" class="color-footer w-100">
+        <footer class="color-footer py-4 mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div>Copyright &copy; Your Website 2022</div>
                 </div>
             </div>
-        </section>
-        <div class="desarrollador text-center p-2">
-            <p>© 2022 Copyright:
-                Desarrollado por Jefferson Rios</a>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 <script src="./js/main.js" type="text/javascript"></script>
 
