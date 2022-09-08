@@ -34,10 +34,10 @@ $(document).ready(function () {
 
                 material_p.forEach(material => {
                     precios +=`<li class="list-group-item d-flex justify-content-between align-items-center">
-                                ${material.material} <span class="badge bg-primary rounded-pill">${material.precio}</span>
+                                ${material.material} <span class="badge bg-primary rounded-pill">${material.precio} $</span>
                     </li>`;
                 })
-
+                
                 precios += '</ul>';
                 $lista_precios.innerHTML = precios;
             }
