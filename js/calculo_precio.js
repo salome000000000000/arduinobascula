@@ -1,37 +1,21 @@
-function calcular() {
-
-    var peso = $.ajax({
-        url: './php/actualizar_valor.php',
-        dataType: 'text',
-        async: false
-    }).responseText;
-
-
-    var test = document.getElementById('material');
-    var option = parseFloat(test.value);
-    var valor = Math.floor(peso) * option;
-    var final = (valor / 1000).toFixed(2);
+function calcular() {   
     
-
-
-    document.getElementById('precio_total').value = final + " $";
-
+    let $cajaPrecio = document.getElementById("precio_total");
     
-    
-    // document.getElementById("calculo_peso").innerHTML = valor;
-}
-
-function capturarPeso(){
     $.ajax({
         url: './php/actualizar_valor.php',
         type: 'GET',
         dataType: 'text',
         success: function(peso){
-            $("#peso").val(peso);     
-        }
+            $("#peso").val(peso + " g");
+            var option = parseFloat($("#material").val());
+            var valor = Math.floor(peso) * option;
+            var final = (valor / 1000).toFixed(2);
+            $("#precio_total").val(final+" $");
+        } 
     })
+    // document.getElementById("calculo_peso").innerHTML = valor;
 }
-
 function resetearValor(){
 
     document.getElementById("precio_total").value = "0.00 $";
@@ -40,9 +24,7 @@ function resetearValor(){
 }
 
 function resetBascula(){
-
     var reset = 0;
-
     $.ajax({
         url: './php/resetear.php',
         data: "resetear="+ reset,
