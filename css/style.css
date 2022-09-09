@@ -10,15 +10,9 @@ body{
   border-radius: 5px;
 }
 
-a{
-  text-decoration: none;
-  color: black;
-}
-
 .navbar{
-  background-color: #259234;
+  background-color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  color: white;
 }
 
 .color-footer{
@@ -38,7 +32,17 @@ a{
   background-color: #01460a;
 }
 
-/*ESTILO DE LA TABLA*/
+.carousel{
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.carousel-item{
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/*ESTILO DE LOS BOTONES*/
 
 .boton{
   border-radius: 5px;
@@ -103,13 +107,6 @@ a{
 
 
 /*VALIDADOR*/
-
-.verificador .validador{
-  color: rgb(169, 0, 0);
-  font-size: 2rem;
-  right: -1%;
-}
-
 .v-cedula .validador, .v-correo .validador, .v-telefono  .validador{
   right: -0.5%;
 }
