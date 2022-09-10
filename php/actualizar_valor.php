@@ -1,5 +1,5 @@
 <?php	
-    include 'conexion_database.php';
+    include '../model/conexion_database.php';
 
     $query = "SELECT * FROM datosarduino";
     $result = mysqli_query($con, $query);
