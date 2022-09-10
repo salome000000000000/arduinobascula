@@ -49,11 +49,13 @@ const validarCampos = (expresion, input, campo) => {
 	if (expresion.test(input.value)) {
 		//document.getElementById(`${campo}`).classList.remove('incorrecto');
 		//document.getElementById(`${campo}`).classList.add('correcto');
+		document.getElementById(`val-${campo}`).classList.add('correcto');
 		document.getElementById(`${campo}`).classList.remove('form-control-red');
 		document.getElementById(`${campo}`).classList.add('form-control-green');
 		campos[campo] = true;
 	} else {
 		//document.getElementById(`${campo}`).classList.add('incorrecto');
+		document.getElementById(`val-${campo}`).classList.remove('correcto');
 		document.getElementById(`${campo}`).classList.add('form-control-red');
 		document.getElementById(`${campo}`).classList.remove('form-control-green');
 		campos[campo] = false;
