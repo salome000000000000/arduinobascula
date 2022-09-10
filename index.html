@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/validacion.css">
     <title>Báscula Arduino</title>
 
 </head>
@@ -145,32 +146,57 @@
 
                         <div class="row g-2">
 
+                            <!-- NOMBRE -->
                             <div class="col-md-6">
                                 <label for="nombre">Nombre: </label>
                                 <input class="form-control" type="text" class="box" id="nombre" name="nombre" required>
+                                <div id="val-nombre" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                    <span class="fw-semibold">Coloque un nombre válido</span>
+                                </div>
                             </div>
 
+                            <!-- APELLIDO -->
                             <div class="col-md-6">
                                 <label for="apellido">Apellido: </label>
-                                <input class="form-control" type="text" class="box" id="apellido" name="apellido"
-                                    required>
+                                <input class="form-control" type="text" class="box" id="apellido" name="apellido" required>
+                                <div id="val-apellido" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                    <span class="fw-semibold">Coloque un apellido válido</span>
+                                </div>
                             </div>
 
+                            <!-- CEDULA -->
                             <div class="col-md-6">
                                 <label for="cedula">Cédula: </label>
                                 <input class="form-control" type="number" class="box" id="cedula" name="cedula" required>
+                                <div id="val-cedula" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                    <span class="fw-semibold">Coloque un apellido válido</span>
+                                </div>
                             </div>
 
+                            <!-- TELEFONO -->
                             <div class="col-md-6">
                                 <label for="celular">Teléfono: </label>
-                                <input class="form-control" type="number" class="box" id="telefono" name="telefono" required>       
+                                <input class="form-control" type="number" class="box" id="telefono" name="telefono" required>
+                                <div id="val-telefono" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                    <span class="fw-semibold">Coloque un apellido válido</span>
+                                </div>       
                             </div>
-  
+
+                            <!-- CORREO -->
                             <div class="col-xxl-6">
                                 <label for="correo">Correo: </label>
                                 <input class="form-control" type="email" class="box" id="correo" name="correo" required>
+                                <div id="val-correo" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                    <span class="fw-semibold">Coloque un apellido válido</span>
+                                </div>
                             </div>
 
+                            <!-- DIRECCION -->
                             <div class="col-xxl-6">
                                 <label for="direccion">Dirección <span class="fw-light">(Opcional)</span>: </label>
                                 <textarea class="form-control" class="box" id="direccion" name="direccion"></textarea>  
