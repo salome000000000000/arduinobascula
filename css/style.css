@@ -1,5 +1,5 @@
 body{
-  background-image: url('../img/background-reciclaje.jpg');
+  background-image: url('../img/background-reciclaje.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
