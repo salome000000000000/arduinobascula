@@ -1,0 +1,34 @@
+
+/*VALIDADOR*/
+.correcto{
+    visibility: hidden;
+  }
+  
+  .incorrecto{
+    visibility: visible;
+  }
+  
+  .form-control-red{
+    border: solid 1px red;
+  }
+  
+  .form-control-red:focus{
+    box-shadow: 0 0 10px red;
+    border: solid 1px red;
+  }
+  
+  .form-control-green{
+    border: solid 1px rgb(0, 157, 5);
+  }
+  
+  .form-control-green:focus{
+    box-shadow: 0 0 10px rgb(0, 157, 5);
+    border: solid 1px rgb(24, 94, 0);
+  }
+  
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  
