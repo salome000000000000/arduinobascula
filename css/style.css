@@ -32,6 +32,8 @@ body{
   background-color: #01460a;
 }
 
+/** CAROUSEL DE IMAGENES */
+
 .carousel{
   overflow: hidden;
   border-radius: 5px;
@@ -40,6 +42,11 @@ body{
 .carousel-item{
   overflow: hidden;
   border-radius: 5px;
+}
+
+.carousel-img{
+	height: 200px;
+	object-fit: none;
 }
 
 /*ESTILO DE LOS BOTONES*/
@@ -103,48 +110,5 @@ body{
   background-color: #2465b9;
   color: white;
   text-decoration: none;
-}
-
-
-/*VALIDADOR*/
-.v-cedula .validador, .v-correo .validador, .v-telefono  .validador{
-  right: -0.5%;
-}
-
-.correcto{
-  visibility: hidden;
-}
-
-.incorrecto{
-  visibility: visible;
-}
-
-.form-control-red{
-  border: solid 1px red;
-}
-
-.form-control-red:focus{
-  box-shadow: 0 0 10px red;
-  border: solid 1px red;
-}
-
-.form-control-green{
-  border: solid 1px rgb(0, 157, 5);
-}
-
-.form-control-green:focus{
-  box-shadow: 0 0 10px rgb(0, 157, 5);
-  border: solid 1px rgb(24, 94, 0);
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-.carousel-img{
-	height: 200px;
-	object-fit: none;
 }
 
