@@ -5,6 +5,7 @@ const expresiones = {
 	nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
 	apellido: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+$/,
+	password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/,
 	cedula: /^[0-9]{10}/,
 	telefono: /^\d{10}$/
 }
@@ -18,6 +19,7 @@ const campos = {
 }
 
 const validarFormulario = (reg) => {
+	console.log(reg.target.name)
 	switch (reg.target.name) {
 		case "nombre":
 			validarCampos(expresiones.nombre, reg.target, 'nombre');
