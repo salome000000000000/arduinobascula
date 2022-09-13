@@ -1,5 +1,8 @@
-const formulario = document.getElementById("datos-usuario");
+const formulario = document.getElementById('datos-usuario');
 const inputs = document.querySelectorAll('#datos-usuario input');
+
+var validacion = false;
+
 
 const expresiones = {
     nombre: /^[a-zA-ZÁ-ÿ\s][^ ]{1,40}/,
@@ -52,10 +55,9 @@ const validarFormulario = (reg) => {
             break;
 
         default:
-            break;          
+            break;
 
     }
-    console.log(reg.target.name);
 }
 
 
@@ -66,7 +68,7 @@ const validarCampos = (expresion, input, campo) => {
         document.getElementById(`${campo}`).classList.add('form-control-green');
         document.getElementById('validar-formulario').classList.add('correcto');
         campos[campo] = true;
-        
+
     } else {
         //document.getElementById(`${campo}`).classList.add('incorrecto');
         document.getElementById(`val-${campo}`).classList.remove('correcto');
@@ -81,8 +83,8 @@ const validarPass = () => {
     const passw1 = document.getElementById('password');
     const passw2 = document.getElementById('password_conf');
 
-    if (passw1.value != passw2.value || (passw1.value == '' && passw2.value == '')){
-        
+    if (passw1.value != passw2.value || (passw1.value == '' && passw2.value == '')) {
+
         document.getElementById('val-verif').classList.remove('correcto');
 
         document.getElementById('password').classList.add('form-control-red');
@@ -92,13 +94,13 @@ const validarPass = () => {
         document.getElementById('password_conf').classList.remove('form-control-green');
         campos['password'] = false;
 
-        
+
     } else {
         document.getElementById('val-verif').classList.add('correcto');
 
         document.getElementById('password').classList.remove('form-control-red');
         document.getElementById('password').classList.add('form-control-green');
-        
+
         document.getElementById('password_conf').classList.remove('form-control-red');
         document.getElementById('password_conf').classList.add('form-control-green');
         campos['password'] = true;
@@ -108,17 +110,48 @@ const validarPass = () => {
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);   
+    input.addEventListener('blur', validarFormulario);
 })
 
-function validacion() {
+
+$("#registrar").click(function () {
 
     if (campos.name && campos.lastname && campos.username && campos.email && campos.password && campos.code) {
         document.getElementById('validar-formulario').classList.add('correcto');
-        return true
+        validacion = true;
 
     } else {
         document.getElementById('validar-formulario').classList.remove('correcto');
-        return false;
     }
-}
+});
+
+$("#registrar").click(function () {
+    if (validacion) {
+        var nom = document.getElementById('name').value;
+        var ape = document.getElementById('lastname').value;
+        var usr = document.getElementById('username').value;
+        var mail = document.getElementById('email').value;
+        var cod = document.getElementById('code').value;
+        var pas = document.getElementById('password');
+        var ruta = "name=" + nom + "&lastname=" + ape + "&username=" + usr + "&email=" + mail + "&code=" + cod + "&password=" + pas;
+        console.log(ruta);
+        $.ajax({
+            url: './controller/registro_admin.php',
+            type: 'POST',
+            data: ruta,
+        }).done(function (res) {
+            $('#mensaje-serv').html(res);
+          /*  
+            if($("#reset")){
+                $('#name').val(null);
+                $('#lastname').val(null);
+                $('#username').val(null);
+                $('#email').val(null);
+                $('#code').val(null);
+                $('#password').val(null);
+                $('#password_conf').val(null);
+                campos[0] = false;
+            }*/
+        })
+    }
+})
