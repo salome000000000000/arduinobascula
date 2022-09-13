@@ -55,10 +55,26 @@ const validarFormulario = (reg) => {
             break;          
 
     }
+    console.log(reg.target.name);
 }
 
 
-
+const validarCampos = (expresion, input, campo) => {
+    if (expresion.test(input.value)) {
+        document.getElementById(`val-${campo}`).classList.add('correcto');
+        document.getElementById(`${campo}`).classList.remove('form-control-red');
+        document.getElementById(`${campo}`).classList.add('form-control-green');
+        document.getElementById('validar-formulario').classList.add('correcto');
+        campos[campo] = true;
+        
+    } else {
+        //document.getElementById(`${campo}`).classList.add('incorrecto');
+        document.getElementById(`val-${campo}`).classList.remove('correcto');
+        document.getElementById(`${campo}`).classList.add('form-control-red');
+        document.getElementById(`${campo}`).classList.remove('form-control-green');
+        campos[campo] = false;
+    }
+}
 
 const validarPass = () => {
 
@@ -90,31 +106,14 @@ const validarPass = () => {
 
 }
 
-const validarCampos = (expresion, input, campo) => {
-    if (expresion.test(input.value)) {
-        document.getElementById(`val-${campo}`).classList.add('correcto');
-        document.getElementById(`${campo}`).classList.remove('form-control-red');
-        document.getElementById(`${campo}`).classList.add('form-control-green');
-        document.getElementById('validar-formulario').classList.add('correcto');
-        campos[campo] = true;
-    } else {
-        //document.getElementById(`${campo}`).classList.add('incorrecto');
-        document.getElementById(`val-${campo}`).classList.remove('correcto');
-        document.getElementById(`${campo}`).classList.add('form-control-red');
-        document.getElementById(`${campo}`).classList.remove('form-control-green');
-    }
-}
-
-
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
-    
+    input.addEventListener('blur', validarFormulario);   
 })
 
 function validacion() {
 
-    if (campos.nombre && campos.apellido && campos.username && campos.correo && campos.password && campos.codigo) {
+    if (campos.name && campos.lastname && campos.username && campos.email && campos.password && campos.code) {
         document.getElementById('validar-formulario').classList.add('correcto');
         return true
 
@@ -123,4 +122,3 @@ function validacion() {
         return false;
     }
 }
-

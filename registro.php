@@ -107,28 +107,29 @@
                                             <ul class="list-group list-group-flush">
                                                 <li class="text-danger list-group-item correcto" id="val-name"><i
                                                         class="fas fa-exclamation-triangle"></i> Coloque un nombre
-                                                    valido</li>
+                                                    válido.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-lastname"><i
                                                         class="fas fa-exclamation-triangle"></i> Coloque un apellido
-                                                    valido</li>
+                                                    válido.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-username"><i
                                                         class="fas fa-exclamation-triangle"></i> Coloque un nombre de
-                                                    usuario valido, ejemplo: juan_perez, juan.perez, juan.2002</li>
+                                                    usuario válido.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-code"><i
-                                                        class="fas fa-exclamation-triangle"></i> Coloque un codigo de
-                                                    rol valido</li>
+                                                        class="fas fa-exclamation-triangle"></i> Coloque un código de
+                                                    rol válido.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-email"><i
                                                         class="fas fa-exclamation-triangle"></i> Coloque un correo
-                                                    valido</li>
+                                                        válido.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-password"><i
                                                         class="fas fa-exclamation-triangle"></i> Coloque una contraseña
-                                                    valida</li>
+                                                    válida.</li>
                                                 <li class="text-danger list-group-item correcto" id="val-verif"><i
                                                         class="fas fa-exclamation-triangle"></i> Las contraseñas no
-                                                    coinciden</li>
-                                                <li class="list-group-item list-group-item-danger correcto" id="validar-formulario"><i
-                                                        class="fas fa-exclamation-triangle"></i> Complete el formulario </li>
+                                                    coinciden.</li>
                                             </ul>
+                                            <div class="alert alert-danger correcto" role="alert" id="validar-formulario"><i
+                                                class="fas fa-exclamation-triangle"></i> Complete el formulario.</li>
+                                            </div>    
 
                                         </div>
                                         <div class="mt-4 mb-0">
