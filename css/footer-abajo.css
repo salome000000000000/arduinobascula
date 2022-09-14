@@ -1,0 +1,11 @@
+body{
+    display: flexbox;
+    margin-bottom: 5%;
+}
+
+#layoutAuthentication_footer {
+    position:fixed;
+    margin-top: 5%;
+    bottom:0px;
+    width:100%;
+}

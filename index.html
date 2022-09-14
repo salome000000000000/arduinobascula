@@ -22,14 +22,13 @@
         <!-- ENCABEZADO -->
         <header class="shadow-lg">
             <nav class="caja navbar navbar-expand-lg mb-4 mt-4 justify-content-center">
-                <div>
-                    <a class="justify-content-start logo-nav navbar-brand ms-4" href="./"><img src="./img/ico/logo.svg" style="width: 12rem;"></a>
+                <div class="container-fluid">
+                <a class="justify-content-start logo-nav navbar-brand ms-4" href="./"><img src="./img/ico/logo.svg" style="width: 12rem;"></a>
                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
                     <ul class="w-100 navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item p-2">
@@ -44,13 +43,14 @@
                     </ul>
                     <a class="logo justify-content-end me-4" href="https://ismac.edu.ec" target="_blank"><img class="logo" src="./img/soft.png" width="100px" style="filter: invert();"></a>
                 </div>
+                </div>
             </nav>
         </header>
 
         <form action="./controller/insertar_usuarios.php" method="POST" id="datos-usuario" onsubmit="return validacion();" novalidate>
             <div class="container-fluid row m-0 p-0">
                 <!-- Pagina 1 -->
-                <div class="caja bascula-arduino col-xl p-4 me-4 mb-4" id="home">
+                <div class="caja bascula-arduino col p-4 me-4 mb-4" id="home">
                     <div class="content">
                         <h2 fw-light>Cálculo mediante báscula</h2>
                         <p>Seleccione el material que se está pesando:</p>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <!-- PAGINA 2 -->
-                <div class="caja bascula-arduino col-sm p-4 mb-4">
+                <div class="caja bascula-arduino col-4 p-4 mb-4">
                     <h2>Listado de precios</h2>
                     <p>A continuación se presentan los precios de cada material reciclable</p>
                     <div id="materiales-select">

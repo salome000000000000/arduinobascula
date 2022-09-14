@@ -61,16 +61,19 @@ html, body{
   background-color: #1cb85d;
   box-shadow: 0px 5px 0px 0px #007531;
   border: none;
+  transition: .25s;
 }
 
 .boton:active {
   transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
   box-shadow: 0px 1px 0px 0px;
+  transition: .25s;
 }
 
 .boton:hover {
   background-color: #2bd371;
+  transition: .25s;
 }
 
 .rojo{
