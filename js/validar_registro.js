@@ -3,7 +3,6 @@ const inputs = document.querySelectorAll('#datos-usuario input');
 
 var validacion = false;
 
-
 const expresiones = {
     nombre: /^[a-zA-ZÁ-ÿ\s][^ ]{1,40}/,
     apellido: /^[a-zA-ZÁ-ÿ\s][^ ]{1,40}$/,
@@ -11,7 +10,7 @@ const expresiones = {
     username: /^[a-zA-Z]+[_.+-]+[a-zA-Z0-9]{3,16}$/,
     codigo: /[A-Za-z0-9]{1,6}$/,
     cedula: /^[0-9]{10}$/,
-    password: /^.{4,12}$/
+    password: /^.{8,16}$/
 }
 
 const campos = {
@@ -66,7 +65,9 @@ const validarCampos = (expresion, input, campo) => {
         document.getElementById(`val-${campo}`).classList.add('correcto');
         document.getElementById(`${campo}`).classList.remove('form-control-red');
         document.getElementById(`${campo}`).classList.add('form-control-green');
-        document.getElementById('validar-formulario').classList.add('correcto');
+        if(document.getElementById('bd-validar')){
+            document.getElementById('bd-validar').classList.add('correcto');
+        }
         campos[campo] = true;
 
     } else {
@@ -83,7 +84,7 @@ const validarPass = () => {
     const passw1 = document.getElementById('password');
     const passw2 = document.getElementById('password_conf');
 
-    if (passw1.value != passw2.value || (passw1.value == '' && passw2.value == '')) {
+    if (passw1.value != passw2.value || (passw1.value == '' && passw2.value == '') || (passw1.value.length < 8 && passw2.value.length < 8)) {
 
         document.getElementById('val-verif').classList.remove('correcto');
 
@@ -115,24 +116,13 @@ inputs.forEach((input) => {
 
 
 $("#registrar").click(function () {
-
     if (campos.name && campos.lastname && campos.username && campos.email && campos.password && campos.code) {
-        document.getElementById('validar-formulario').classList.add('correcto');
-        validacion = true;
-
-    } else {
-        document.getElementById('validar-formulario').classList.remove('correcto');
-    }
-});
-
-$("#registrar").click(function () {
-    if (validacion) {
         var nom = document.getElementById('name').value;
         var ape = document.getElementById('lastname').value;
         var usr = document.getElementById('username').value;
         var mail = document.getElementById('email').value;
         var cod = document.getElementById('code').value;
-        var pas = document.getElementById('password');
+        var pas = document.getElementById('password').value;
         var ruta = "name=" + nom + "&lastname=" + ape + "&username=" + usr + "&email=" + mail + "&code=" + cod + "&password=" + pas;
         console.log(ruta);
         $.ajax({
@@ -140,18 +130,15 @@ $("#registrar").click(function () {
             type: 'POST',
             data: ruta,
         }).done(function (res) {
-            $('#mensaje-serv').html(res);
-          /*  
-            if($("#reset")){
-                $('#name').val(null);
-                $('#lastname').val(null);
-                $('#username').val(null);
-                $('#email').val(null);
-                $('#code').val(null);
-                $('#password').val(null);
-                $('#password_conf').val(null);
-                campos[0] = false;
-            }*/
+            $('#mensaje-serv').html(res); 
+            $("#datos-usuario")[0].reset();
+            document.getElementById('name').classList.remove('form-control-green');
+            document.getElementById('lastname').classList.remove('form-control-green');
+            document.getElementById('username').classList.remove('form-control-green');
+            document.getElementById('email').classList.remove('form-control-green');
+            document.getElementById('code').classList.remove('form-control-green');
+            document.getElementById('password').classList.remove('form-control-green');
+            document.getElementById('password_conf').classList.remove('form-control-green');
         })
     }
 })
