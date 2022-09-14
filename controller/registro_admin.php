@@ -20,11 +20,11 @@ $pass = '';
 $mens_error = '';
 
 if (
-    !empty($_POST['name']) ||
-    !empty($_POST['lastname']) ||
-    !empty($_POST['email']) ||
-    !empty($_POST['username']) ||
-    !empty($_POST['code']) ||
+    !empty($_POST['name']) &&
+    !empty($_POST['lastname']) &&
+    !empty($_POST['email']) &&
+    !empty($_POST['username']) &&
+    !empty($_POST['code']) &&
     !empty($_POST['password'])
 ) {
     $name = $_POST['name'];
@@ -107,7 +107,7 @@ if (
                             <a href="#" class="alert-link">iniciar sesión</a>.
                             </div>';*/
 } else {
-    $mens_error = '<div class="alert alert-danger" role="alert">
+    $mens_error = '<div class="alert alert-danger" id="bd-validar" role="alert">
             <i class="fas fa-exclamation-triangle"></i>Complete el formulario
             </div>';
 }
