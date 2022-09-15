@@ -96,7 +96,7 @@ if (
             $registrar = mysqli_query($con, $insert);
 
             $mens_error = '<div class="alert alert-success" role="alert" id="reset">
-                            <i class="fas fa-exclamation-triangle"></i> Se ha registado exitosamente, 
+                            Se ha registado exitosamente, 
                             <a href="./login.php" class="alert-link">iniciar sesión</a>.
                             </div>';
         }
