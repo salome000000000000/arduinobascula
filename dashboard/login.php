@@ -1,3 +1,8 @@
+<?php 
+    include '../model/conexion_database.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,24 +73,18 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Inicio de sesion</h3></div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="POST" action="">
+                                        <?php include '../controller/login_controller.php'?>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" type="text" name="user" placeholder="name@example.com" />
                                             <label for="inputEmail">Correo o nombre de usuario</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                            <input class="form-control" id="inputPassword" type="password" name="pass" placeholder="Password" />
                                             <label for="inputPassword">Contraseña</label>
                                         </div>
-                                        <!--<div class="form-check mb-3">
-                                         FUNCIONA PARA RECORDAR CONTRSAEÑAS 
-                                            
-                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                            <label class="form-check-label" for="inputRememberPassword">Remember Password</label> 
-                                        </div>-->
                                         <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                            <!-- <a class="small" href="password.html">Forgot Password?</a> -->
-                                            <a class="btn btn-primary text-center" href="./">Ingresar</a>
+                                            <input type="submit" class="btn btn-primary text-center" name='ingresar' value="Ingresar">
                                         </div>
                                     </form>
                                 </div>
