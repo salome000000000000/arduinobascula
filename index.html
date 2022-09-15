@@ -13,44 +13,74 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/validacion.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    
+    <link rel="shortcut icon" href="./img/ico/icono.png" type="image/x-icon">
     <title>Báscula Arduino</title>
 
 </head>
 
 <body>
-    <div class="container background">
-        <!-- ENCABEZADO -->
-        <header class="shadow-lg">
-            <nav class="caja navbar navbar-expand-lg mb-4 mt-4 justify-content-center">
-                <div class="container-fluid">
-                <a class="justify-content-start logo-nav navbar-brand ms-4" href="./"><img src="./img/ico/logo.svg" style="width: 12rem;"></a>
-                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+    <header class="shadow-lg">
+
+        <!-- MENU DE NAVEGACION -->
+        <nav class="caja-sin-border navbar navbar-expand-lg mb-4 justify-content-center">
+            <div class="container-fluid">
+                <a class="justify-content-start logo-nav navbar-brand ms-4" href="./"><img src="./img/ico/logo.svg"
+                        style="width: 12rem;"></a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
                     <ul class="w-100 navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item p-2">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="./">Inicio</a>
                         </li>
                         <li class="nav-item p-2">
-                            <a class="nav-link" href="#">Registro</a>
+                            <a class="nav-link" href="./dashboard/registro.php">Registro</a>
                         </li>
                         <li class="nav-item p-2">
-                            <a class="nav-link" href="#">Acerca de</a>
+                            <a class="nav-link" href="./about.html">Acerca de</a>
                         </li>
                     </ul>
-                    <a class="logo justify-content-end me-4" href="https://ismac.edu.ec" target="_blank"><img class="logo" src="./img/soft.png" width="100px" style="filter: invert();"></a>
+                    <a class="logo justify-content-end me-4" href="https://ismac.edu.ec" target="_blank"><img
+                            class="logo" src="./img/soft.png" width="100px" style="filter: invert();"></a>
                 </div>
-                </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+    </header>
 
-        <form action="./controller/insertar_usuarios.php" method="POST" id="datos-usuario" onsubmit="return validacion();" novalidate>
+    <div class="container background">
+        <!-- ENCABEZADO -->
+        
+
+        <form action="./controller/insertar_usuarios.php" method="POST" id="datos-usuario"
+            onsubmit="return validacion();" novalidate>
             <div class="container-fluid row m-0 p-0">
                 <!-- Pagina 1 -->
-                <div class="caja bascula-arduino col p-4 me-4 mb-4" id="home">
+                <div class="caja bascula-arduino col-md-4 p-4 me-4 mb-4">
+                    <h2>Listado de precios</h2>
+                    <p>A continuación se presentan los precios de cada material reciclable</p>
+                    <div id="materiales-select">
+                        <ul class="list-group" id="lista-precios">
+                            <li id="precios-cargando"
+                                class='list-group-item d-flex justify-content-between align-items-left'>
+                                <span class="align-text-bottom">Aquí se mostrarán el listado de precios.</span>
+                                <span class="spinner-border" role="status"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <div class="boton-administrar m-0 p-0" id="calculo_peso">
+                            <a class="boton rojo" name="admin" id="admin" href="login.php">Administrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- PAGINA 2 -->
+                 <div class="caja bascula-arduino col-md p-4 mb-4" id="home">
                     <div class="content">
                         <h2 fw-light>Cálculo mediante báscula</h2>
                         <p>Seleccione el material que se está pesando:</p>
@@ -89,29 +119,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- PAGINA 2 -->
-                <div class="caja bascula-arduino col-4 p-4 mb-4">
-                    <h2>Listado de precios</h2>
-                    <p>A continuación se presentan los precios de cada material reciclable</p>
-                    <div id="materiales-select">
-                        <ul class="list-group" id="lista-precios">
-                            <li id="precios-cargando"
-                                class='list-group-item d-flex justify-content-between align-items-left'>
-                                <span class="align-text-bottom">Aquí se mostrarán el listado de precios.</span>
-                                <span class="spinner-border" role="status"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="d-flex justify-content-center">
-                        <div class="boton-administrar m-0 p-0" id="calculo_peso">
-                            <a class="boton rojo" name="admin" id="admin" href="login.php">Administrar</a>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <!-- SLIDER -->
 
+            <!-- SLIDER -->
             <div id="carouselExampleControls" class="carousel slide mh-25" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -150,8 +160,9 @@
                             <div class="col-md-6">
                                 <label for="nombre">Nombre: </label>
                                 <input class="form-control" type="text" class="box" id="nombre" name="nombre" required>
-                                <div id="val-nombre" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
-                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                <div id="val-nombre" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto"
+                                    role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>
                                     <span class="fw-semibold">Coloque un nombre válido</span>
                                 </div>
                             </div>
@@ -159,9 +170,11 @@
                             <!-- APELLIDO -->
                             <div class="col-md-6">
                                 <label for="apellido">Apellido: </label>
-                                <input class="form-control" type="text" class="box" id="apellido" name="apellido" required>
-                                <div id="val-apellido" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
-                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                <input class="form-control" type="text" class="box" id="apellido" name="apellido"
+                                    required>
+                                <div id="val-apellido" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto"
+                                    role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>
                                     <span class="fw-semibold">Coloque un apellido válido</span>
                                 </div>
                             </div>
@@ -169,29 +182,36 @@
                             <!-- CEDULA -->
                             <div class="col-md-6">
                                 <label for="cedula">Cédula: </label>
-                                <input class="form-control" type="number" class="box" id="cedula" name="cedula" required>
-                                <div id="val-cedula" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
-                                    <i class="red fas fa-exclamation-triangle"></i>  
-                                    <span class="fw-semibold">Coloque su número de cédula sin guíones (10 dígitos)</span>
+                                <input class="form-control" type="number" class="box" id="cedula" name="cedula"
+                                    required>
+                                <div id="val-cedula" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto"
+                                    role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>
+                                    <span class="fw-semibold">Coloque su número de cédula sin guíones (10
+                                        dígitos)</span>
                                 </div>
                             </div>
 
                             <!-- TELEFONO -->
                             <div class="col-md-6">
                                 <label for="celular">Teléfono: </label>
-                                <input class="form-control" type="number" class="box" id="telefono" name="telefono" required>
-                                <div id="val-telefono" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
-                                    <i class="red fas fa-exclamation-triangle"></i>  
-                                    <span class="fw-semibold">Coloque su número telefónico sin espacios (10 dígitos)</span>
-                                </div>       
+                                <input class="form-control" type="number" class="box" id="telefono" name="telefono"
+                                    required>
+                                <div id="val-telefono" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto"
+                                    role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>
+                                    <span class="fw-semibold">Coloque su número telefónico sin espacios (10
+                                        dígitos)</span>
+                                </div>
                             </div>
 
                             <!-- CORREO -->
                             <div class="col-xxl-6">
                                 <label for="correo">Correo: </label>
                                 <input class="form-control" type="email" class="box" id="correo" name="correo" required>
-                                <div id="val-correo" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto" role="alert">
-                                    <i class="red fas fa-exclamation-triangle"></i>  
+                                <div id="val-correo" class="alert alert-danger error-nombre mt-1 mb-1 p-2 correcto"
+                                    role="alert">
+                                    <i class="red fas fa-exclamation-triangle"></i>
                                     <span class="fw-semibold">Coloque un correo válido</span>
                                 </div>
                             </div>
@@ -199,7 +219,7 @@
                             <!-- DIRECCION -->
                             <div class="col-xxl-6">
                                 <label for="direccion">Dirección <span class="fw-light">(Opcional)</span>: </label>
-                                <textarea class="form-control" class="box" id="direccion" name="direccion"></textarea>  
+                                <textarea class="form-control" class="box" id="direccion" name="direccion"></textarea>
                             </div>
                         </div>
                         <div class="errors"></div>
@@ -209,15 +229,30 @@
             </div>
         </form>
     </div>
-    <div id="layoutAuthentication_footer" class="color-footer w-100">
-        <footer class="color-footer py-4 mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div>Copyright &copy; Báscula All in One 2022</div>
-                </div>
-            </div>
-        </footer>
-    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="leftFooter m-auto">
+            <a class="navbar-brand" href="./"><img src="./img/ico/texto.svg"
+                style="width: 8rem; filter: invert();"></a>
+        </div>
+        
+        <div class="centerFooter m-auto">
+            <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>   
+        </div>
+        
+        <div class="rightFooter m-auto">
+            <ul>
+                <li><strong>&copy; Desarrollado por:</strong></li>
+                <li class="text-end">Jefferson Rios</li>
+                <li class="text-end">Jeremy Castro</li>
+            </ul>
+        </div>
+        
+      </footer>
 </body>
 
 <!-- JavaScript -->

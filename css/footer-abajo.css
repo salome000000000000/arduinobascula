@@ -1,11 +1,15 @@
-body{
-    display: flexbox;
-    margin-bottom: 5%;
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 11.2rem;
 }
 
 #layoutAuthentication_footer {
-    position:fixed;
-    margin-top: 5%;
-    bottom:0px;
-    width:100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

@@ -1,9 +1,5 @@
 /*EFECTO RESPONSIVE*/
 @media (max-width: 975px){
-  *{
-    font-size: 9px;
-    /*text-align: left;*/
-  }
   .logo{
     display: none;
   }
