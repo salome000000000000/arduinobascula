@@ -1,6 +1,7 @@
 const formulario = document.getElementById('datos-usuario');
 const inputs = document.querySelectorAll('#datos-usuario input');
 
+
 var validacion = false;
 
 const expresiones = {
@@ -57,10 +58,12 @@ const validarFormulario = (reg) => {
             break;
 
     }
+
 }
 
 
 const validarCampos = (expresion, input, campo) => {
+
     if (expresion.test(input.value)) {
         document.getElementById(`val-${campo}`).classList.add('correcto');
         document.getElementById(`${campo}`).classList.remove('form-control-red');
@@ -126,11 +129,12 @@ $("#registrar").click(function () {
         var ruta = "name=" + nom + "&lastname=" + ape + "&username=" + usr + "&email=" + mail + "&code=" + cod + "&password=" + pas;
         console.log(ruta);
         $.ajax({
-            url: './controller/registro_admin.php',
+            url: '../controller/registro_admin.php',
             type: 'POST',
             data: ruta,
         }).done(function (res) {
-            $('#mensaje-serv').html(res); 
+            $('#mensaje-serv').html(res);
+             
             $("#datos-usuario")[0].reset();
             document.getElementById('name').classList.remove('form-control-green');
             document.getElementById('lastname').classList.remove('form-control-green');
