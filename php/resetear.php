@@ -1,12 +1,11 @@
 <?php
 include '..model/conexion_database.php';
 
-	if($con){
         
-		if(isset($_POST['resetear'])) {
+		if(!empty($_POST['resetear'])) {
             $valor = $_POST['resetear'];
             echo "Medida en gramos";
-            echo "Valor : ". $valor;
+            echo "Valor : " . $valor;
 
 
             $update = "UPDATE datosarduino SET valor = '$valor' WHERE id = 1";
@@ -26,12 +25,6 @@ include '..model/conexion_database.php';
 
                 echo "No se esta recibiendo valores";
             }
-       
 
-	} else {
-
-        echo "No se ha podido establecer conexion";
-
-    }
 
  ?>   
