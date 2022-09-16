@@ -19,7 +19,6 @@ const campos = {
 }
 
 const validarFormulario = (reg) => {
-	console.log(reg.target.name)
 	switch (reg.target.name) {
 		case "nombre":
 			validarCampos(expresiones.nombre, reg.target, 'nombre');
