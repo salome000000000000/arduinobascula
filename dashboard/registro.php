@@ -42,7 +42,7 @@
                             <a class="nav-link active" href="#">Registro</a>
                         </li>
                         <li class="nav-item p-2">
-                            <a class="nav-link" href="./about.html">Acerca de</a>
+                            <a class="nav-link" href="../about.html">Acerca de</a>
                         </li>
                     </ul>
                     <a class="logo justify-content-end me-4" href="https://ismac.edu.ec" target="_blank"><img
