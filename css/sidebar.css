@@ -23,11 +23,10 @@ overflow:visible;
 .main-menu {
 background:#212121;
 border-right:1px solid #e5e5e5;
-position:absolute;
+position: fixed;
+left: 0;
 top:0;
-bottom:0;
 height:100%;
-left:0;
 width:60px;
 overflow:hidden;
 -webkit-transition:width .05s linear;
@@ -126,4 +125,12 @@ height: 100%;
   font-style: normal;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+
+.s-active{
+  color: white;
+  background-color:#5fa2db;
+  -webkit-transition:all .1s linear;
+transition:all .1s linear;
 }
