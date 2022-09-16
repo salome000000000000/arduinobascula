@@ -52,7 +52,7 @@
                             <a class="nav-link" aria-current="page" href="../">Inicio</a>
                         </li>
                         <li class="nav-item p-2">
-                            <a class="nav-link" href="../registro.html">Registro</a>
+                            <a class="nav-link" href="./registro.php">Registro</a>
                         </li>
                         <li class="nav-item p-2">
                             <a class="nav-link" href="../about.html">Acerca de</a>
