@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/validacion.css">
     <link rel="stylesheet" href="./css/footer.css">
-    
+
     <link rel="shortcut icon" href="./img/ico/icono.png" type="image/x-icon">
     <title>Báscula Arduino</title>
 
@@ -54,7 +54,7 @@
 
     <div class="container background">
         <!-- ENCABEZADO -->
-        
+
 
         <form action="./controller/insertar_usuarios.php" method="POST" id="datos-usuario"
             onsubmit="return validacion();" novalidate>
@@ -75,12 +75,12 @@
                     <br>
                     <div class="d-flex justify-content-center">
                         <div class="boton-administrar m-0 p-0" id="calculo_peso">
-                            <a class="boton rojo" name="admin" id="admin" href="login.php">Administrar</a>
+                            <a class="boton rojo" name="admin" id="admin" href="./dashboard/login.php">Administrar</a>
                         </div>
                     </div>
                 </div>
                 <!-- PAGINA 2 -->
-                 <div class="caja bascula-arduino col-md p-4 mb-4" id="home">
+                <div class="caja bascula-arduino col-md p-4 mb-4" id="home">
                     <div class="content">
                         <h2 fw-light>Cálculo mediante báscula</h2>
                         <p>Seleccione el material que se está pesando:</p>
@@ -125,13 +125,13 @@
             <div id="carouselExampleControls" class="carousel slide mh-25" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./img/test/1.jpg" class="d-block w-100 carousel-img">
+                        <img src="./img/recycle/1.jpg" class="d-block w-100 carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/test/2.jpg" class="d-block w-100 carousel-img">
+                        <img src="./img/recycle/2.jpg" class="d-block w-100 carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/test/3.jpg" class="d-block w-100 carousel-img">
+                        <img src="./img/recycle/3.jpg" class="d-block w-100 carousel-img">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -222,7 +222,6 @@
                                 <textarea class="form-control" class="box" id="direccion" name="direccion"></textarea>
                             </div>
                         </div>
-                        <div class="errors"></div>
                     </fieldset>
                     <input type="submit" name="enviar" class="boton" id="enviar" value="Registrar Datos">
                 </div>
@@ -234,16 +233,15 @@
 
     <footer>
         <div class="leftFooter m-auto">
-            <a class="navbar-brand" href="./"><img src="./img/ico/texto.svg"
-                style="width: 8rem; filter: invert();"></a>
+            <a class="navbar-brand" href="./"><img src="./img/ico/texto.svg" style="width: 8rem; filter: invert();"></a>
         </div>
-        
+
         <div class="centerFooter m-auto">
             <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>   
+            <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        
+
         <div class="rightFooter m-auto">
             <ul>
                 <li><strong>&copy; Desarrollado por:</strong></li>
@@ -251,8 +249,8 @@
                 <li class="text-end">Jeremy Castro</li>
             </ul>
         </div>
-        
-      </footer>
+
+    </footer>
 </body>
 
 <!-- JavaScript -->
