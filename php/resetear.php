@@ -1,8 +1,8 @@
 <?php
-include '..model/conexion_database.php';
+include '../model/conexion_database.php';
 
         
-		if(!empty($_POST['resetear'])) {
+		if(!isset($_POST['resetear'])) {
             $valor = $_POST['resetear'];
             echo "Medida en gramos";
             echo "Valor : " . $valor;
