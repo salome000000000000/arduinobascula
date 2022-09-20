@@ -8,7 +8,10 @@ function calcular() {
         dataType: 'text',
         success: function(peso){
             $("#peso").val(peso + " g");
-            var option = parseFloat($("#material").val());
+
+            let material = $("#material").val();
+            let mat = material.split('_');
+            var option = parseFloat(mat[1]);
             var valor = Math.floor(peso) * option;
             var final = (valor / 1000).toFixed(2);
             $("#precio_total").val(final+" $");
