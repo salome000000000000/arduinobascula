@@ -15,7 +15,7 @@ $(document).ready(function () {
                 let precios = '<ul class="list-group" id="lista-precios">';
 
                 materiales.forEach(material => {
-                    template += `<option class="materiales form-control" name="materiales" id="${material.material_id}" value="${material.precio}">
+                    template += `<option class="materiales form-control" name="materiales" id="${material.material_id}" value="${material.material_id}_${material.precio}">
                     ${material.materiales} </option>`;
                     precios +=`<li class="list-group-item d-flex justify-content-between align-items-center">
                     ${material.materiales} <span class="badge bg-primary rounded-pill">${material.precio} $</span>
