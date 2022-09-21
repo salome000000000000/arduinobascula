@@ -10,14 +10,12 @@ $direccion = $_POST["direccion"];
 $precio = $_POST["precio_total"]; 
 $peso = $_POST["peso"];
 
-$material_id = $_POST["material_id"];
 
-if(isset($_POST["material"])){
+$material = explode('_', $_POST["material"]);
 
-    $material = $_POST["material"];
-}
+$material_id = $material[0];
 
-$insert = "INSERT INTO usuario (id, cedula, nombre, apellido, correo, direccion, material, peso, precio) VALUES (null, '$cedula','$nombre','$apellido','$correo','$direccion','$material','$peso','$precio')";
+$insert = "INSERT INTO usuario (id, cedula, nombre, apellido, correo, direccion, material, peso, precio) VALUES (null, '$cedula','$nombre','$apellido','$correo','$direccion','$material_id','$peso','$precio')";
 
 $result = mysqli_query($con, $insert);
 
