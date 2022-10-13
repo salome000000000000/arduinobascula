@@ -279,24 +279,43 @@ if (empty($_SESSION['id'])) {
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
+                            <!-- EDICION DE PRECIOS DE MATERIALES -->
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Lista de precios</h6>
                                 </div>
-                                <!-- Card Body -->
+
                                 <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Material</th>
-                                                <th scope="col">Precio</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                    <div>
+                                        <input type="button" value="Agregar material" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo material</h2>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="mb-3">
+                                                                <label for="material" class="col-form-label">Nombre material:</label>
+                                                                <input type="text" class="form-control" id="material">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="precio" class="col-form-label">Precio:</label>
+                                                                <input type="text" class="form-control" id="precio">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="button" onclick="agregarMaterial();"class="btn btn-primary">Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
