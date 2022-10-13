@@ -14,7 +14,8 @@ $(document).ready(function (){
             for(let i in dato){
                 for(let j in dato[i]){         
                     document.getElementById(`i${k}`).innerHTML = j;
-                    document.getElementById(`it${k}`).innerHTML = dato[i][j];              
+                    document.getElementById(`it${k}`).innerHTML = dato[i][j];
+                    k++;              
                 }
             }
 
