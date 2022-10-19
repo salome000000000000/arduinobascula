@@ -300,17 +300,17 @@ if (empty($_SESSION['id'])) {
                                                         <form>
                                                             <div class="mb-3">
                                                                 <label for="material" class="col-form-label">Nombre material:</label>
-                                                                <input type="text" class="form-control" id="material">
+                                                                <input type="text" class="form-control" id="material" placeholder="Ejemplo: baterías">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="precio" class="col-form-label">Precio:</label>
-                                                                <input type="text" class="form-control" id="precio">
+                                                                <input type="number" min="0.00" max="10000.00" step="0.01" id="precio" class="form-control" placeholder="0.00">
                                                             </div>
                                                         </form>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="button" onclick="agregarMaterial();"class="btn btn-primary">Guardar</button>
+                                                        <button type="button" onclick="agregarMaterial();" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -484,12 +484,19 @@ if (empty($_SESSION['id'])) {
         </div>
     </div>
 
+
+    <!-- CRUD listado de precios -->
+    <script src="./js/materiales.js"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+
+
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
