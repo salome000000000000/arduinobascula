@@ -284,9 +284,6 @@ if (empty($_SESSION['id'])) {
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Lista de precios</h6>
-                                </div>
-
-                                <div class="card-body">
                                     <div>
                                         <input type="button" value="Agregar material" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -315,6 +312,11 @@ if (empty($_SESSION['id'])) {
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="table-responsive" id="mostrarMateriales">
                                     </div>
                                 </div>
                             </div>
@@ -434,24 +436,25 @@ if (empty($_SESSION['id'])) {
 
             <!-- Footer -->
             <footer>
-                <div class="leftFooter m-auto">
-                    <a class="navbar-brand" href="./"><img src="../img/ico/texto.svg" style="width: 8rem; filter: invert();"></a>
-                </div>
+                <div class="footer footer-content-wrapper">
+                    <div class="footer-col leftFooter m-auto small-50 tiny-100">
+                        <a class="navbar-brand" href="../"><img src="../img/ico/texto.svg" style="width: 8rem; filter: invert();"></a>
+                    </div>
 
-                <div class="centerFooter m-auto">
-                    <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+                    <div class="footer-col centerFooter m-auto small-50 tiny-100">
+                        <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
 
-                <div class="rightFooter m-auto">
-                    <ul>
-                        <li><strong>&copy; Desarrollado por:</strong></li>
-                        <li class="text-end">Jefferson Rios</li>
-                        <li class="text-end">Jeremy Castro</li>
-                    </ul>
+                    <div class="footer-col rightFooter m-auto small-50 tiny-100">
+                        <ul>
+                            <li><strong>&copy; Desarrollado por:</strong></li>
+                            <li>Jefferson Rios</li>
+                            <li>Jeremy Castro</li>
+                        </ul>
+                    </div>
                 </div>
-
             </footer>
             <!-- End of Footer -->
 
@@ -486,7 +489,7 @@ if (empty($_SESSION['id'])) {
 
 
     <!-- CRUD listado de precios -->
-    <script src="./js/materiales.js"></script>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -507,6 +510,8 @@ if (empty($_SESSION['id'])) {
     <!-- Page level custom scripts -->
     <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
+
+    <script src="./js/materiales.js"></script>
 
 </body>
 

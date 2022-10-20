@@ -67,6 +67,50 @@ function agregarMaterial() {
             }
         })
     }
-    
+
 
 }
+
+
+function mostrarMateriales() { 
+    $.ajax({
+        url: '../php/materiales.php',
+        type: 'GET',
+        success: function (response) {
+            var mats = document.getElementById("mostrarMateriales");
+            const materiales = JSON.parse(response);
+            let template = `
+                <table class="table">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Material</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">`;
+
+            materiales.forEach(material => {
+                template += `
+                    <tr> 
+                        <th scope="row">${material.material_id}</th>
+                        <td>${material.materiales}</td>
+                        <td>${material.precio} $</td>
+                        <td>
+                            <button class="btn btn-dark">Editar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>`;
+            })
+            template += `
+                    </tbody>
+                </table>`;
+
+            mats.innerHTML = template;
+        }
+    })
+}
+
+
+mostrarMateriales()
