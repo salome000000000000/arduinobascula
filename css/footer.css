@@ -19,22 +19,28 @@ a{
   
   footer {
     font-family: Quicksand, sans-serif;  
-    height: 7rem;
+    height: fit-content;
+    padding: 0 3rem;
     background: hsla(0, 0%, 100%, 0.85);
+    
+  }
+
+  .footer{
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3rem;
+    height: fit-content;
+    padding: 1rem 0 1rem 0;
   }
   
-  footer a {
+  .footer a {
     color: #00000088;
     font-weight: 400;
     transition: .2s;
   }
   
-  footer a:hover {
+  .footer a:hover {
     color: #000000;
   }
   
@@ -42,8 +48,54 @@ a{
     font-size: 1.4rem;
   }
 
-  footer i{
+  .footer i{
     font-size: 2rem;
     margin: .5rem;
   }
+
+  .footer-col {
+    display: inline-block;
+    padding: 0.5em 0.1em 0.5em 1em;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 550px) {
+
+    .leftFooter{
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .centerFooter{
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .rightFooter{
+      text-align: center;
+      padding: 0;
+    }
+    .small-50 {
+      width: 50%;  
+    }
+  }
   
+  @media (max-width: 390px) {
+    .centerFooter{
+      border-top: dashed 0.1px #000000;
+      display: inline-block;
+      text-align: center;
+      padding: 1rem 0 1rem 0;
+    }
+
+    .rightFooter{
+      border-top: dashed .1px #000000;
+      padding: 1rem 0 0 0;
+    }
+
+    .tiny-100 {
+      width: 100%;
+    }
+  }
