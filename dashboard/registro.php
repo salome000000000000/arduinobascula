@@ -172,29 +172,9 @@
         </div>
     </div>
     <div id="layoutAuthentication_footer">
-        <!-- FOOTER -->
-        <footer>
-            <div class="leftFooter m-auto">
-                <a class="navbar-brand" href="./"><img src="../img/ico/texto.svg"
-                        style="width: 8rem; filter: invert();"></a>
-            </div>
-
-            <div class="centerFooter m-auto">
-                <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-
-            <div class="rightFooter m-auto">
-                <ul>
-                    <li><strong>&copy; Desarrollado por:</strong></li>
-                    <li class="text-end">Jefferson Rios</li>
-                    <li class="text-end">Jeremy Castro</li>
-                </ul>
-            </div>
-
-        </footer>
+        <?php
+        require("./layout/footer.php");
+        ?>
     </div>
 </body>
 

@@ -77,8 +77,9 @@ function mostrarMateriales() {
         url: '../php/materiales.php',
         type: 'GET',
         success: function (response) {
-            var mats = document.getElementById("mostrarMateriales");
-            const materiales = JSON.parse(response);
+            var i = 1
+            var mats = document.getElementById("mostrarMateriales")
+            const materiales = JSON.parse(response)
             let template = `
                 <table class="table">
                     <thead class="thead-dark text-center">
@@ -94,7 +95,7 @@ function mostrarMateriales() {
             materiales.forEach(material => {
                 template += `
                     <tr> 
-                        <th scope="row">${material.material_id}</th>
+                        <th scope="row">${i++}</th>
                         <td>${material.materiales}</td>
                         <td>${material.precio} $</td>
                         <td>
