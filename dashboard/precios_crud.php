@@ -20,6 +20,9 @@ if (empty($_SESSION['id'])) {
 
     <title>Dashboard B - All in One</title>
 
+    <!-- Datatables bootstrap -->
+    <link rel="stylesheet" href="../vendor/datatables/dataTables.bootstrap4.css">
+
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -34,7 +37,7 @@ if (empty($_SESSION['id'])) {
 <body id="page-top">
     <div id="wrapper">
 
-        <!-- Sidebar --> 
+        <!-- Sidebar -->
         <?php
         require('./layout/menu.php');
         ?>
@@ -69,33 +72,7 @@ if (empty($_SESSION['id'])) {
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Lista de precios</h6>
                                     <div>
-                                        <input type="button" value="Agregar material" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo material</h2>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="mb-3">
-                                                                <label for="material" class="col-form-label">Nombre material:</label>
-                                                                <input type="text" class="form-control" id="material" placeholder="Ejemplo: baterías">
-                                                            </div>
-                                                            <div class="mb-3">
-                                                                <label for="precio" class="col-form-label">Precio:</label>
-                                                                <input type="number" min="0.00" max="10000.00" step="0.01" id="precio" class="form-control" placeholder="0.00">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="button" onclick="agregarMaterial();" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <input type="button" value="Agregar material" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarMaterial">
                                     </div>
                                 </div>
 
@@ -252,15 +229,68 @@ if (empty($_SESSION['id'])) {
         </div>
     </div>
 
+    <!-- New Material Modal -->
+    <div class="modal fade" id="agregarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo material</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="material" class="col-form-label">Nombre material:</label>
+                            <input type="text" class="form-control" id="material" placeholder="Ejemplo: baterías">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" class="col-form-label">Precio:</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" id="precio" class="form-control" placeholder="0.00">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="agregarMaterial();" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                    <input type="hidden" name="">
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- CRUD listado de precios -->
+    <!-- Update Modal -->
+    <div class="modal fade" id="actualizarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Actualizar detalles</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="materialupdate" class="col-form-label">Nombre material:</label>
+                            <input type="text" class="form-control" id="materialupdate" placeholder="Ejemplo: baterías">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precioupdate" class="col-form-label">Precio:</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" id="precioupdate" class="form-control" placeholder="0.00">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-actualizar" onclick="actualizarMaterial();" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="hidden" id="hidden_material">
+                </div>
+            </div>
+        </div>
+    </div>
 
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
 
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -276,7 +306,14 @@ if (empty($_SESSION['id'])) {
     <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
 
+    <!-- CRUD listado de precios -->
     <script src="./js/materiales.js"></script>
+
+    <!-- Datatables -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    
+
 
 </body>
 
