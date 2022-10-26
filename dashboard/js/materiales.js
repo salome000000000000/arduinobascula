@@ -1,3 +1,4 @@
+/*CREAD MATERIALES*/
 function agregarMaterial() {
     var mat = $('#material').val()
     var pre = $('#precio').val()
@@ -63,24 +64,10 @@ function agregarMaterial() {
                 precio: pre
             },
             success: function (data, status) {
-                mostrarMateriales()
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                  })
-                  
-                  Toast.fire({
-                    icon: 'success',
-                    title: 'Se ha agregado un nuevo material'
-                  })
-                console.log(status)
+                $("#agregarMaterial").modal("hide")
+                $("#precio").val("")
+                $("#material").val("")
+                notificacionAgregarMaterial()
             }
         })
     }
@@ -88,7 +75,7 @@ function agregarMaterial() {
 
 }
 
-
+/*READ MATERIALES*/
 function mostrarMateriales() {
     $(document).ready( function () {
         $('#lista_materiales').DataTable({
@@ -142,7 +129,73 @@ function mostrarMateriales() {
     })
 }
 
+/*UPDATE MATERIALES*/
+function actualizarMaterial() {
 
+    let val = true
+    let estado = false
+    precio = document.getElementById("precioupdate").value
+    nombre_material = document.getElementById("materialupdate").value
+    id = document.getElementById("hidden_material").value
+
+    precio = parseFloat(precio)
+
+    if ((precio == "" || precio <= 0) || nombre_material == "") {
+        val = false
+        Swal.fire({
+            icon: 'error',
+            title: 'Campos vacíos',
+            text: 'Complete todos los detalles',
+        })
+    }
+
+    if (isNaN(precio)) {
+        val = false
+        Swal.fire({
+            icon: 'error',
+            title: 'Formato incorrecto',
+            text: 'Coloque un precio adecuado',
+        })
+    }
+
+    if (val) {
+        Swal.fire({
+            title: '¿Quieres guardar los cambios?',
+            text: "Los cambios se guardarán",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Guardar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                estado = true
+                updateConfirmacion(estado)
+                notificacionActualizarMaterial()
+            }
+        })
+    }
+    function updateConfirmacion(estado) {
+        if (estado) {
+            $.ajax({
+                url: "./php/actualizar_material.php",
+                type: "POST",
+                data: {
+                    id: id,
+                    precio: precio,
+                    material: nombre_material
+                },
+                success: function (data, status) {
+                    console.log(status)
+                }
+            })
+            $("#actualizarMaterial").modal("hide")
+            mostrarMateriales()
+        }
+    }
+}
+
+/*DELETE MATERIALES*/
 function eliminarMaterial(id_material) {
     let estado = false;
     Swal.fire({
@@ -157,11 +210,6 @@ function eliminarMaterial(id_material) {
         if (result.isConfirmed) {
             let estado = true
             eliminar(estado)
-            Swal.fire(
-                'Eliminado',
-                'El material ha sido eliminado',
-                'success'
-            )
         }
     })
     function eliminar(st) {
@@ -174,6 +222,7 @@ function eliminarMaterial(id_material) {
                 },
                 success: function (data, status) {
                     mostrarMateriales();
+                    notificaionEliminarMaterial()
                 }
             })
         }
@@ -181,6 +230,8 @@ function eliminarMaterial(id_material) {
 }
 
 
+
+/*RELLENAR CAMPOS PARA ACTUALIZAR MATERIALES*/
 function obtenerDetalles(id_material) {
 
     $("#actualizarMaterial").modal("show")
@@ -206,52 +257,63 @@ function obtenerDetalles(id_material) {
     })
 }
 
-function actualizarMaterial() {
 
-    let estado = true
-    precio = document.getElementById("precioupdate").value
-    nombre_material = document.getElementById("materialupdate").value
-    id = document.getElementById("hidden_material").value
-
-    if ((precio == "" || precio <= 0) && nombre_material == "") {
-        estado = false
-        alert("No deje los campos vacios")
-    }
-
-    Swal.fire({
-        title: '¿Quierees guardar los cambios?',
-        text: "Los cambios se guardarán",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Guardar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Guardado',
-            'Se han actualizado los detalles',
-            'success'
-          )
+/*NOTIFICACIONES SWEETALERT*/
+function notificacionAgregarMaterial() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
-      })
+    })
 
-    if (estado) {
-        $.ajax({
-            url: "./php/actualizar_material.php",
-            type: "POST",
-            data: {
-                id: id,
-                precio: precio,
-                material: nombre_material
-            },
-            success: function (data, status) {
-                console.log(status)
-            }
-        })
-        $("#actualizarMaterial").modal("hide")
-    }
+    Toast.fire({
+        icon: 'success',
+        title: 'Se ha agregado un nuevo material'
+    })
 }
 
+function notificacionActualizarMaterial() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'Se ha actualizado el material'
+    })
+}
+
+function notificaionEliminarMaterial() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'error',
+        title: 'Se ha eliminado el material'
+    })
+}
 
 mostrarMateriales()

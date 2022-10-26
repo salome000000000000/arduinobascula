@@ -5,12 +5,10 @@ if (empty($_SESSION['id'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +22,7 @@ if (empty($_SESSION['id'])) {
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="../vendor/DataTables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../vendor/DataTables/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
 
     <!-- Custom styles for this template-->
@@ -57,12 +55,8 @@ if (empty($_SESSION['id'])) {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Báscula All in One</h1>
-                    </div>
-
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h2 class="h5 mb-0 text-gray-800">CRUD de listado de precios</h2>
+                    <div class="d-sm-flex align-items-center justify-content-between pb-4">
+                        <img src="../img/ico/logo.svg" style="width: 15rem;">
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
@@ -76,8 +70,13 @@ if (empty($_SESSION['id'])) {
                                     </div>
                                 </div>
 
-                                <div class="card-body">
-                                    <div class="table-responsive" id="mostrarMateriales">
+                                <div class="card-body p-3">
+                                    <div class="table-responsive pt-1 pb-1" id="mostrarMateriales">
+                                        <div class="container-fluid p-5 text-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Cargando</span>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -241,18 +240,17 @@ if (empty($_SESSION['id'])) {
                     <form>
                         <div class="mb-3">
                             <label for="material" class="col-form-label">Nombre material:</label>
-                            <input type="text" class="form-control" id="material" placeholder="Ejemplo: baterías">
+                            <input type="text" class="form-control" id="material" value="" placeholder="Ejemplo: baterías">
                         </div>
                         <div class="mb-3">
                             <label for="precio" class="col-form-label">Precio:</label>
-                            <input type="number" min="0.00" max="10000.00" step="0.01" id="precio" class="form-control" placeholder="0.00">
+                            <input type="number" min="0.00" max="10000.00" step="0.01" value="" id="precio" class="form-control" placeholder="0.00">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" onclick="agregarMaterial();" class="btn btn-primary">Guardar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="agregarMaterial();" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
-                    <input type="hidden" name="">
                 </div>
             </div>
         </div>
