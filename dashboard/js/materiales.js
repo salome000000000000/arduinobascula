@@ -92,10 +92,14 @@ function agregarMaterial() {
 function mostrarMateriales() {
     $(document).ready( function () {
         $('#lista_materiales').DataTable({
-            "info": false,
-            "language": {
+            info: false,
+            language: {
                 "url": "../vendor/datatables/JSON/Spanish.json"
-            }
+            },
+            columnDefs:[{
+                targets: 3,
+                sortable: false
+            }],
         });
     } );
     $.ajax({
@@ -106,26 +110,26 @@ function mostrarMateriales() {
             var mats = document.getElementById("mostrarMateriales")
             const materiales = JSON.parse(response)
             let template = `
-                <table id="lista_materiales" class="table">
-                    <thead class="thead-dark text-center">
+                <table id="lista_materiales" class="table table-sm">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Material</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Opciones</th>
+                            <th class="text-center" scope="col">Precio</th>
+                            <th class="text-center" scope="col">Opciones</th>
                         </tr>
                     </thead>
-                    <tbody class="text-center">`;
+                    <tbody class="container-fluid">`;
 
             materiales.forEach(material => {
                 template += `
                     <tr> 
-                        <th>${i++}</th>
+                        <th scope="row">${i++}</th>
                         <td>${material.materiales}</td>
-                        <td>${material.precio} $</td>
-                        <td>
-                            <button class="btn btn-dark" onclick="obtenerDetalles('${material.material_id}')">Editar</button>
-                            <button class="btn btn-danger" onclick="eliminarMaterial('${material.material_id}')">Eliminar</button>
+                        <td class="text-center">${material.precio} $</td>
+                        <td class="text-center">
+                            <button class="btn btn-dark btn-sm" onclick="obtenerDetalles('${material.material_id}')">Editar</button>
+                            <button class="btn btn-danger btn-sm" onclick="eliminarMaterial('${material.material_id}')">Eliminar</button>
                         </td>
                     </tr>`;
             })
@@ -215,18 +219,18 @@ function actualizarMaterial() {
     }
 
     Swal.fire({
-        title: '¿',
-        text: "You won't be able to revert this!",
+        title: '¿Quierees guardar los cambios?',
+        text: "Los cambios se guardarán",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Guardar'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Guardado',
+            'Se han actualizado los detalles',
             'success'
           )
         }

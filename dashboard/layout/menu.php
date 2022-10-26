@@ -1,4 +1,4 @@
-<ul class="sidebar accordion menu" id="accordionSidebar">
+<ul class="navbar-nav sidebar accordion menu" id="accordionSidebar">
             <div id="wrapper">
                 <!-- Sidebar -->
                 <nav class="main-menu">
