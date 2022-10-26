@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/footer.css">
 
 </head>
 
@@ -171,7 +172,7 @@
             </main>
         </div>
     </div>
-    <div id="layoutAuthentication_footer">
+    <div id="layoutAuthentication_footer" class="foot">
         <?php
         require("./layout/footer.php");
         ?>
