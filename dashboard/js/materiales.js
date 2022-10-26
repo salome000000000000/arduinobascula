@@ -77,18 +77,6 @@ function agregarMaterial() {
 
 /*READ MATERIALES*/
 function mostrarMateriales() {
-    $(document).ready( function () {
-        $('#lista_materiales').DataTable({
-            info: false,
-            language: {
-                "url": "../vendor/datatables/JSON/Spanish.json"
-            },
-            columnDefs:[{
-                targets: 3,
-                sortable: false
-            }],
-        });
-    } );
     $.ajax({
         url: '../php/materiales.php',
         type: 'GET',
@@ -131,7 +119,6 @@ function mostrarMateriales() {
 
 /*UPDATE MATERIALES*/
 function actualizarMaterial() {
-
     let val = true
     let estado = false
     precio = document.getElementById("precioupdate").value
@@ -186,11 +173,11 @@ function actualizarMaterial() {
                     material: nombre_material
                 },
                 success: function (data, status) {
-                    console.log(status)
+                    mostrarMateriales()
                 }
             })
             $("#actualizarMaterial").modal("hide")
-            mostrarMateriales()
+            
         }
     }
 }
@@ -233,7 +220,6 @@ function eliminarMaterial(id_material) {
 
 /*RELLENAR CAMPOS PARA ACTUALIZAR MATERIALES*/
 function obtenerDetalles(id_material) {
-
     $("#actualizarMaterial").modal("show")
     precio = $("#precioupdate").val()
     nombre_material = $("#materialupdate").val()
@@ -249,7 +235,6 @@ function obtenerDetalles(id_material) {
         },
         success: function (data, status) {
             let datos = JSON.parse(data);
-            console.log(datos)
             document.getElementById("precioupdate").value = datos.precio
             document.getElementById("materialupdate").value = datos.material
             document.getElementById("hidden_material").value = datos.id
