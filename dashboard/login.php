@@ -12,26 +12,18 @@
     <title>Iniciar sesión</title>
 
     <!-- JavaScript -->
-    <script src="./js/jquery.min.js" type="text/javascript"></script>
-    <script src="./js/calculo_precio.js" type="text/javascript"></script>
-    <script src="./js/materiales.js" type="text/javascript"></script>
-    <script src="./js/actualizar.js" type="text/javascript"></script>
-    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./ico/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../vendor/fontawesome-free/js/all.min.js"></script>
 
     <!-- ARCHIVOS DE ESTILO -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/footer-abajo.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="./css/footer.css">
 
 </head>
 <body>
@@ -40,7 +32,7 @@
         <!-- MENU DE NAVEGACION -->
         <nav class="caja-sin-border navbar navbar-expand-lg justify-content-center">
             <div class="container-fluid">
-                <a class="justify-content-start logo-nav navbar-brand ms-4" href="./"><img src="../img/ico/logo.svg"
+                <a class="justify-content-start logo-nav navbar-brand ms-4" href="../"><img src="../img/ico/logo.svg"
                         style="width: 12rem;"></a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -99,7 +91,7 @@
             </main>
         </div>
     </div>
-    <div id="layoutAuthentication_footer" class="foot">
+    <div class="foot">
         <?php
             require("./layout/footer.php");
         ?>
