@@ -32,50 +32,11 @@ if (empty($_SESSION['id'])) {
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="sidebar accordion" id="accordionSidebar">
-            <div id="wrapper">
-                <!-- Sidebar -->
-                <nav class="main-menu">
-                    <ul>
-                        <li class="has-subnav s-active">
-                            <a href="./">
-                                <i class="fa fa-home  s-active"></i>
-                                <span class="nav-text  s-active">
-                                    Inicio
-                                </span>
-                            </a>
 
-                        </li>
-                        <li class="has-subnav">
-                            <a href="./precios_crud.php">
-                                <i class="fa fa-money"></i>
-                                <span class="nav-text">
-                                    Administrar precios
-                                </span>
-                            </a>
-
-                        </li>
-                        <li class="has-subnav">
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o fa-2x"></i>
-                                <span class="nav-text">
-                                    Estadisticas
-                                </span>
-                            </a>
-
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-users"></i>
-                                <span class="nav-text">
-                                    Usuarios
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-        </ul>
-        <!-- End of Sidebar -->
+        <!-- Sidebar -->
+        <?php
+        require('./layout/menu.php');
+        ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -184,7 +145,7 @@ if (empty($_SESSION['id'])) {
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                         
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
