@@ -31,7 +31,7 @@
 
                 </li>
                 <li>
-                    <a href="./usuarios_crud.php">
+                    <a href="./administrar_usuarios.php">
                         <i class="fa fa-users"></i>
                         <span class="nav-text">
                             Usuarios
