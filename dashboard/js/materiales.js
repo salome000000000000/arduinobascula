@@ -68,10 +68,10 @@ function agregarMaterial() {
                 $("#precio").val("")
                 $("#material").val("")
                 notificacionAgregarMaterial()
+                mostrarMateriales();
             }
         })
     }
-
 
 }
 
@@ -300,5 +300,6 @@ function notificaionEliminarMaterial() {
         title: 'Se ha eliminado el material'
     })
 }
+
 
 mostrarMateriales()

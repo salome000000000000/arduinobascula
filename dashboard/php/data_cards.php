@@ -28,19 +28,20 @@ $fila3 = mysqli_fetch_row(mysqli_query($con, $sql));
 $peso = $fila3[0];
 $medida = 'g';
 
+
+#Validar datos
 if($fila3[0] > 1000){
     $peso = $fila3[0]/1000;
     $medida = "Kg";
 }
 
-#
-
+if($fila2[0] == null) $fila2[0] = "Ninguno";
 
 #IMPRIMIR EL ARRAY
 $datos[] = array(
     'Total de usuarios'=> $fila1[0],
     'Material más reciclado' => $fila2[0],
-    'Cantidad reciclada' => ($peso . " " . $medida)
+    'Cantidad reciclada' => ($peso+0 . " " . $medida)
 );
 
 echo json_encode($datos);
