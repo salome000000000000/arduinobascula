@@ -6,12 +6,17 @@ $pass = "";
 
 $server = "localhost";
 $db = "proyectoBascula";
+$con = "";
 
 
-$con=mysqli_connect($server, $user, $pass, $db) or die ("No se ha podido conectar con la base de datos");
-$mysqli = new mysqli($server, $user, $pass, $db);
-$mysqli->query("SET NAMES 'UTF8'");
-
-return $con;
+try {
+    $con = mysqli_connect($server, $user, $pass, $db);
+    $mysqli = new mysqli($server, $user, $pass, $db);
+    $mysqli->query("SET NAMES 'UTF8'");
+    return $con;
+} catch (Exception $e) {
+    echo "No se ha podido conectar a la base de datos";
+    return "No se ha podido conectar con la base de datos";
+}
 
 ?>
