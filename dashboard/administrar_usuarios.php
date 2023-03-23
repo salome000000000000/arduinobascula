@@ -67,28 +67,26 @@ if (empty($_SESSION['id'])) {
                     <!-- Content Row -->
 
                     <div class="row">
-                        <!-- Area Chart -->
-                        <div class="col">
-                            <div class="shadow mb-4">
-                                <!-- Card Body -->
-                                <div class="card table-responsive p-3">
-                                    <table class="table" id="usuarios-tabla">
-                                        <thead class="card-header">
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Cédula</th>
-                                                <th>Correo</th>
-                                                <th>Material</th>
-                                                <th>Peso</th>
-                                                <th>Precio</th>
-                                                <th>Opciones</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                        <!-- LISTA DE USUARIOS -->
+                        <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Lista de usuarios</h6>
+                                    <div>
+                                        <input type="button" value="Agregar usuario" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuario" onClick="opciones()">
+                                    </div>
+                                </div>
+
+                                <div class="card-body p-3">
+                                    <div class="table-responsive pt-1 pb-1" id="mostrarUsuarios">
+                                        <div class="container-fluid p-5 text-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Cargando</span>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
 
                 </div>
@@ -98,30 +96,9 @@ if (empty($_SESSION['id'])) {
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer>
-                <div class="footer footer-content-wrapper">
-                    <div class="footer-col leftFooter m-auto small-50 tiny-100">
-                        <a class="navbar-brand" href="../"><img src="../img/ico/texto.svg"
-                                style="width: 8rem; filter: invert();"></a>
-                    </div>
-
-                    <div class="footer-col centerFooter m-auto small-50 tiny-100">
-                        <a href="https://www.facebook.com/TecnoUniISMAC" target="_blank"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="www.instagram.com/institutouniversitarioismac" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://github.com/jeffmermelada" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-
-                    <div class="footer-col rightFooter m-auto small-50 tiny-100">
-                        <ul>
-                            <li><strong>&copy; Desarrollado por:</strong></li>
-                            <li>Jefferson Rios</li>
-                            <li>Jeremy Castro</li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
+            <?php
+                require('./layout/footer.php');
+            ?>
             <!-- End of Footer -->
 
         </div>
@@ -154,12 +131,137 @@ if (empty($_SESSION['id'])) {
         </div>
     </div>
 
+    <!-- New Material Modal -->
+    <div class="modal fade" id="agregarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo usuario</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" value="" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="col-form-label">Apellido:</label>
+                            <input type="text" value="" id="apellido" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cedula" class="col-form-label">Cédula:</label>
+                            <input type="text" value="" id="cedula" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="col-form-label">Correo:</label>
+                            <input type="email" value="" id="correo" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="col-form-label">Direccion:</label>
+                            <input type="text" value="" id="direccion" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="materialList" class="col-form-label">Material:</label>
+                            <select class="form-control form-select" id="materialList">
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pesoMat" class="col-form-label">Peso del material:</label>
+                            <div class="input-group">
+                                <input type="text" value="" id="pesoMat" class="form-control" placeholder="0.00">
+                                <span class="input-group-text mb-3">gramos</span>
+                            </div>    
+                        </div>
+                        <div class="mb-3">
+                            <label for="precioVenta" class="col-form-label">Precio venta: </label>
+                            <div class="input-group">
+                                <span class="input-group-text mb-3">$</span>
+                                <input type="text" value="" id="precioVenta" class="form-control" placeholder="" disabled readonly>
+                            </div>
+                        </div>
+                        <button type="button" onclick="calcular();" class="btn btn-success">Calcular</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="agregarUsuario();" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="actualizarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Actualizar detalles de usuario</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" id="user_id">
+                        <div class="mb-3">
+                            <label for="nombreUpdate" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreUpdate" value="" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellidoUpdate" class="col-form-label">Apellido:</label>
+                            <input type="text" value="" id="apellidoUpdate" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cedulaUpdate" class="col-form-label">Cédula:</label>
+                            <input type="text" value="" id="cedulaUpdate" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="correoUpdate" class="col-form-label">Correo:</label>
+                            <input type="email" value="" id="correoUpdate" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccionUpdate" class="col-form-label">Direccion:</label>
+                            <input type="text" value="" id="direccionUpdate" class="form-control" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="materialListUpdate" class="col-form-label">Material:</label>
+                            <select class="form-control form-select" id="materialListUpdate">
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pesoMatUpdate" class="col-form-label">Peso del material:</label>
+                            <div class="input-group">
+                                <input type="text" value="" id="pesoMatUpdate" class="form-control" placeholder="0.00">
+                                <span class="input-group-text mb-3">gramos</span>
+                            </div>    
+                        </div>
+                        <div class="mb-3">
+                            <label for="precioVentaUpdate" class="col-form-label">Precio venta: </label>
+                            <div class="input-group">
+                                <span class="input-group-text mb-3">$</span>
+                                <input type="text" value="" id="precioVentaUpdate" class="form-control" placeholder="" disabled readonly>
+                            </div>
+                        </div>
+                        <button type="button" onclick="calcularUpdate();" class="btn btn-success">Calcular</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-actualizar" onclick="actualizarUsuario();" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="hidden" id="hidden_material">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
