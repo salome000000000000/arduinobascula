@@ -23,7 +23,7 @@ ORDER BY count(material) DESC LIMIT 1)";
 $fila2 = mysqli_fetch_row(mysqli_query($con, $sql));
 
 #PESO TOTAL DE MATERIAL RECICLADO
-$sql = "SELECT SUM(`peso`) FROM `usuario`;";
+$sql = "SELECT SUM(`peso`) FROM `usuario`";
 $fila3 = mysqli_fetch_row(mysqli_query($con, $sql));
 $peso = $fila3[0];
 $medida = 'g';
