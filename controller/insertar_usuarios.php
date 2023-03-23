@@ -7,12 +7,16 @@ $cedula = $_POST["cedula"];
 $correo = $_POST["correo"];
 $celular = $_POST["celular"];
 $direccion = $_POST["direccion"];
-$precio = $_POST["precio_total"]; 
-$peso = $_POST["peso"];
+$pre = $_POST["precio_total"]; 
+$pso = $_POST["peso"];
 
 
 $material = explode('_', $_POST["material"]);
+$pre = explode(" ", $_POST["precio_total"]);
+$pso = explode(" ", $_POST["peso"]);
 
+$peso = $pso[0];
+$precio = $pre[0];
 $material_id = $material[0];
 
 $insert = "INSERT INTO usuario (id, cedula, nombre, apellido, correo, direccion, material, peso, precio) VALUES (null, '$cedula','$nombre','$apellido','$correo','$direccion','$material_id','$peso','$precio')";
