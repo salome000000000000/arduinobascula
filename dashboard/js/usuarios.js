@@ -88,10 +88,8 @@ function agregarUsuario() {
                 $('#direccion').val("");
                 $('#pesoMat').val("");
                 $('#precioVenta').val("");
-                notificacionAgregarUsuario()
-            },
-            beforeSend: () => {
                 mostrarUsuario();
+                notificacionAgregarUsuario()
             },
         })
     }
