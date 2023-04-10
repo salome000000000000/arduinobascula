@@ -1,4 +1,4 @@
-
+const { jsPDF } = window.jspdf;
 const listado = document.getElementById("materialList");
 const listadoUpdate = document.getElementById("materialListUpdate");
 
@@ -41,7 +41,7 @@ function calcularUpdate() {
     document.getElementById('precioVentaUpdate').value = final;
 }
 
-/*CREAD MATERIALES*/
+//CREAD MATERIALES
 function agregarUsuario() {
     option = "insertar";
     let nombre = document.getElementById("nombre").value;
@@ -95,7 +95,7 @@ function agregarUsuario() {
     }
 }
 
-/*READ MATERIALES*/
+//READ MATERIALES
 function mostrarUsuario() {
     $.ajax({
         url: './php/mostrar_todos_los_usuarios.php',
@@ -150,7 +150,7 @@ function mostrarUsuario() {
     })
 }
 
-/*UPDATE MATERIALES*/
+//UPDATE MATERIALES
 function actualizarUsuario() {
     option = "actualizar";
     let nombreUpdate = document.getElementById("nombreUpdate").value;
@@ -211,7 +211,7 @@ function actualizarUsuario() {
     }
 }
 
-/*DELETE MATERIALES*/
+//DELETE MATERIALES
 function eliminarMaterial(id) {
     option = "eliminar";
     let estado = false;
@@ -247,7 +247,7 @@ function eliminarMaterial(id) {
     }
 }
 
-/*RELLENAR CAMPOS PARA ACTUALIZAR MATERIALES*/
+//RELLENAR CAMPOS PARA ACTUALIZAR MATERIALES
 function obtenerDetalles(id_user) {
     option = "leer";
     $("#actualizarUsuario").modal("show")
@@ -276,7 +276,7 @@ function obtenerDetalles(id_user) {
     })
 }
 
-/*NOTIFICACIONES SWEETALERT*/
+//NOTIFICACIONES SWEETALERT
 function notificacionAgregarUsuario() {
     const Toast = Swal.mixin({
         toast: true,
@@ -296,6 +296,7 @@ function notificacionAgregarUsuario() {
     })
 }
 
+//NOTIFICACION ACTUALIZACION DE USUARIO
 function notificacionActualizarUsuario() {
     const Toast = Swal.mixin({
         toast: true,
@@ -315,6 +316,7 @@ function notificacionActualizarUsuario() {
     })
 }
 
+//NOTIFICACION ELIMINAR USUARIO
 function notificacionEliminar() {
     const Toast = Swal.mixin({
         toast: true,
@@ -334,5 +336,52 @@ function notificacionEliminar() {
     })
 }
 
+//IMPRIMIR DOCUMENTO PDF
+function imprimir(id_user){
+    option = "leer";
+    $.ajax({
+        url: "./php/usuarios.php",
+        type: "POST",
+        data: {
+            id: id_user,
+            opcion: option
+        },
+        success: function (data, status) {
+            const datos = JSON.parse(data);
+            const doc = new jsPDF();
+            doc.setFontSize(30); doc.text("FACTURA", 20, 30);
+            doc.setFontSize(20); doc.text('Detalles de factura', 20, 50);
+            doc.setFontSize(16); doc.text('Datos personales:', 20, 67);  
+            doc.setFontSize(10); doc.text("Nombre: " + datos.nombre.toString().toUpperCase(), 20, 75);
+            doc.text("Apellido: " + datos.apellido.toString().toUpperCase(),20, 80);
+            doc.text("Cédula: " + datos.cedula.toString(), 20, 85);
+            doc.text("Correo: " + datos.correo.toString(), 20, 90);
+            doc.text("Dirección: " + datos.direccion, 20, 95);
+            doc.setFontSize(16); doc.text('Detalle materiales: ', 20, 110);
+            doc.autoTable({
+                margin: {top:115, left:20},
+                styles: {},
+                head: [['Tipo material', 'Peso material', 'Precio']],
+                body: [
+                  [datos.materiales, datos.peso + " g", datos.precio + " $"],
+                ],
+              })
+            
+            doc.save("Detalles de factura de " + datos.cedula);
+            /*$('#user_id').val(datos.id);
+            $('#nombreUpdate').val(datos.nombre);
+            $('#apellidoUpdate').val(datos.apellido);
+            $('#cedulaUpdate').val(datos.cedula);
+            $('#correoUpdate').val(datos.correo);
+            $('#direccionUpdate').val(datos.direccion);
+            $('#pesoMatUpdate').val(datos.peso);
+            $('#precioVentaUpdate').val(datos.precio);
+            $(document).ready(function () {
+                $(`#materialListUpdate > option[id='${datos.id_material}']`).prop('selected', 'selected');
+            })*/
+        }
+    })
+}
 
+//NOTIFICACION PARA
 mostrarUsuario()
