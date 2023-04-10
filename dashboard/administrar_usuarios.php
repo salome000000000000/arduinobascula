@@ -255,6 +255,10 @@ if (empty($_SESSION['id'])) {
         </div>
     </div>
 
+    <!-- jsPDF -->
+    <script src="../vendor/jspdf/jspdf.min.js"></script>
+    <script src="../vendor/jspdf/jspdf.plugin.autotable.js"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -273,7 +277,7 @@ if (empty($_SESSION['id'])) {
     <script type="text/javascript" src="../vendor/DataTables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../vendor/DataTables/js/dataTables.bootstrap5.min.js"></script>
 
-    <!-- Tarjetas -->
+    <!-- CRUD -->
     <script src="./js/usuarios.js"></script>
 
 
