@@ -11,19 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
 
-    <!-- JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../vendor/fontawesome-free/js/all.min.js"></script>
-
     <!-- ARCHIVOS DE ESTILO -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/validacion.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/table.css">
-    <link rel="stylesheet" href="../css/footer-abajo.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/footer.css">
 
 </head>
 <body>
@@ -91,10 +87,14 @@
             </main>
         </div>
     </div>
-    <div class="foot">
+    <div id="layoutAuthentication_footer" class="foot">
         <?php
             require("./layout/footer.php");
         ?>
     </div>
 </body>
+    <!-- JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
 </html>

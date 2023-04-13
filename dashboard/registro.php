@@ -12,7 +12,6 @@
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/footer-abajo.css">
     <link rel="stylesheet" href="../css/validacion.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
