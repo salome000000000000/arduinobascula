@@ -1,10 +1,7 @@
 <?php
 include'../model/conexion_database.php';
 
-
-
 	if($con){
-        
 		if(isset($_REQUEST['id'])) {
             $valor = $_REQUEST['id'];
             echo "Medida en gramos";

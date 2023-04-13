@@ -27,12 +27,13 @@ function resetearValor(){
 }
 
 function resetBascula(){
-    var reset = 0;
+    let resetear = 0;
     $.ajax({
         url: './php/resetear.php',
-        data: "resetear="+ reset,
         type: 'POST',
-        dataType: 'text',
+        data: {
+            resetear: resetear
+        },
         success: function(peso){
             //console.log("valor enviado: "+ reset);  
         }

@@ -1,7 +1,5 @@
 <?php
 include '../model/conexion_database.php';
-
-
 $query = "SELECT * FROM datosarduino";
 try {
 	if (!$con == null) {
