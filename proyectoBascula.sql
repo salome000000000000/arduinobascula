@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2022 a las 06:00:20
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 13-04-2023 a las 15:19:10
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyectoBascula`
+-- Base de datos: `proyectobascula`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `codigo_miembros` (
   `id` int(11) NOT NULL,
   `codigo_miembro` varchar(5) NOT NULL,
   `rol_miembro` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `codigo_miembros`
@@ -50,14 +50,14 @@ CREATE TABLE `datosarduino` (
   `id` int(11) NOT NULL,
   `medida` varchar(20) NOT NULL,
   `valor` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `datosarduino`
 --
 
 INSERT INTO `datosarduino` (`id`, `medida`, `valor`) VALUES
-(1, 'gramo', '1000');
+(1, 'gramo', '0');
 
 -- --------------------------------------------------------
 
@@ -73,7 +73,7 @@ CREATE TABLE `login_usuarios` (
   `codigo_miembro` varchar(10) NOT NULL,
   `correo_usuario` varchar(50) NOT NULL,
   `password_usuario` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `login_usuarios`
@@ -92,14 +92,14 @@ CREATE TABLE `precio_materiales` (
   `id` int(11) NOT NULL,
   `material` varchar(30) NOT NULL,
   `precio` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `precio_materiales`
 --
 
 INSERT INTO `precio_materiales` (`id`, `material`, `precio`) VALUES
-(1, 'PET (botellas plásticas)', '0.75'),
+(1, 'PET (botellas plásticas)', '0.70'),
 (2, 'Cartón', '0.11'),
 (3, 'Vidrio', '0.08'),
 (4, 'Chatarra electrónica', '0.09'),
@@ -125,7 +125,16 @@ CREATE TABLE `usuario` (
   `material` varchar(30) NOT NULL,
   `peso` varchar(10) NOT NULL,
   `precio` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `cedula`, `nombre`, `apellido`, `correo`, `direccion`, `material`, `peso`, `precio`) VALUES
+(1, '12346', 'Jeff', 'Uno', 'jeff@uno.com', 'Tumbaco', '1', '3000', '2.22'),
+(3, '1234567890', 'Jefferson', 'Dos', 'jeff@dos.com', 'Quito', '1', '1000', '0.09'),
+(16, '1234567809', 'Juan', 'Perez', 'juan123@hotmal.com', 'Psje. Juan Aguilar y Miguel Asturias', '7', '2370', '0.43');
 
 --
 -- Índices para tablas volcadas
@@ -187,13 +196,13 @@ ALTER TABLE `login_usuarios`
 -- AUTO_INCREMENT de la tabla `precio_materiales`
 --
 ALTER TABLE `precio_materiales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
