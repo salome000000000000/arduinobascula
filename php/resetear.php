@@ -18,5 +18,4 @@ if (isset($_POST['resetear'])) { #REVISA SI SE DIO CLICK A LA OPCION DE RESETEAR
 } else {
     echo "No se esta recibiendo valores";
 }
-
 ?>
