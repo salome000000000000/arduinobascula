@@ -8,10 +8,10 @@ const expresiones = {
     nombre: /^[a-zA-ZÁ-ÿ\s][^ ]{1,40}/,
     apellido: /^[a-zA-ZÁ-ÿ\s][^ ]{1,40}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+$/,
-    username: /^[a-zA-Z]+[_.+-]+[a-zA-Z0-9]{3,16}$/,
+    username: /^{3,16}$/,
     codigo: /[A-Za-z0-9]{1,6}$/,
     cedula: /^[0-9]{10}$/,
-    password: /^.{8,16}$/
+    password: /^{8,16}/
 }
 
 const campos = {
