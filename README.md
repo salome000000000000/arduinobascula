@@ -9,3 +9,4 @@ _En proceso_
 ### Desarrollado por:
 - Jefferson Rios
 - Jeremy Castro
+- Priscila Gamarra
