@@ -96,5 +96,4 @@
     <!-- End of Footer -->
 </body>
 <script src="./vendor/bootstrap/js/bootstrap.bundle.js"></script>
-
 </html>
