@@ -9,20 +9,23 @@ if (empty($_SESSION['id'])) {
 <html lang="en">
 
 <head>
-                                  <!-- descripcion de caracteres -->
+    <!-- descripcion de caracteres -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon"> <!--funcion para colocar un icono en la pestaña del  navagador -->
+    <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
+    <!--funcion para colocar un icono en la pestaña del  navagador -->
 
     <title>Dashboard B - All in One</title>
 
     <!-- dar estilos al sitio web -->
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -54,31 +57,49 @@ if (empty($_SESSION['id'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Báscula All in One</h1>
+                    <div class="card">
+                        <h5 class="card-header">Perfil de Administrador</h5>
+                        <div class="card-body">
+
+                            <div class="container row">
+                                <div class="col-6">
+                                    <img class="img-thumbnail col-3 m-5 float-start" src="./img/imagen-usuario.png"
+                                        alt="...">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label for= " nombre">Nombre:</label>
+                                    <input class="form-control col-4" type="text" id="nombre" name="nombre"><br><br>
+
+                                    <label class="form-label for=" correo">Correo electrónico:</label>
+                                    <input class="form-control col-4" type="email" id="correo" name="correo"><br><br>
+
+                                    <label class="form-label for=" contraseña">Apellido:</label>
+                                    <input class="form-control col-4" type="text" id="apellido" name="apellido"><br><br>
+
+                                    <label class="form-label for=" bio">Nombre de Usuario:</label><br>
+                                    <input class="form-control col-4" type="text" id="username" name="username">
+                                    <input class="btn btn-primary m-2" type="submit" value="Guardar cambios">
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h2 class="h5 mb-0 text-gray-800">Perfil</h2>
-                    </div>
-                    <!-- Content Row -->
-                </div>
-                <div class="container">
-                
 
                 </div>
+
             </div>
 
             <!-- End of Main Content -->
 
-           <!-- Footer -->
-    <div id="layoutAuthentication_footer" class="foot">
-        <?php
+            <!-- Footer -->
+            <div id="layoutAuthentication_footer" class="foot">
+                <?php
             include "./layout/footer.php";
         ?>
-    </div>
-    <!-- End of Footer -->
+            </div>
+            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -114,4 +135,5 @@ if (empty($_SESSION['id'])) {
 
 
 </body>
+
 </html>
