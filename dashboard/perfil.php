@@ -63,21 +63,21 @@ if (empty($_SESSION['id'])) {
 
                             <div class="container row">
                                 <div class="col-6">
-                                    <img class="img-thumbnail col-3 m-5 float-start" src="./img/imagen-usuario.png"
+                                    <img class="img-thumbnail m-5" width="300px" src="./img/imagen-usuario.png"
                                         alt="...">
-                                </div>
+                                 </div>
                                 <div class="col-6">
                                     <label class="form-label for= " nombre">Nombre:</label>
-                                    <input class="form-control col-4" type="text" id="nombre" name="nombre"><br><br>
+                                    <input class="form-control col-6" type="text" id="nombre" name="nombre"><br><br>
 
                                     <label class="form-label for=" correo">Correo electrónico:</label>
-                                    <input class="form-control col-4" type="email" id="correo" name="correo"><br><br>
+                                    <input class="form-control col-6" type="email" id="correo" name="correo"><br><br>
 
                                     <label class="form-label for=" contraseña">Apellido:</label>
-                                    <input class="form-control col-4" type="text" id="apellido" name="apellido"><br><br>
+                                    <input class="form-control col-6" type="text" id="apellido" name="apellido"><br><br>
 
                                     <label class="form-label for=" bio">Nombre de Usuario:</label><br>
-                                    <input class="form-control col-4" type="text" id="username" name="username">
+                                    <input class="form-control col-6" type="text" id="username" name="username">
                                     <input class="btn btn-primary m-2" type="submit" value="Guardar cambios">
                                 </div>
 
